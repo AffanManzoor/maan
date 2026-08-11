@@ -124,7 +124,7 @@
 /* ---------- Memory Match ---------- */
 .mem-grid{ display:grid; gap:12px; width:100%; max-width:520px; }
 .mem-card{ aspect-ratio:1; border:none; background:none; cursor:pointer; perspective:800px; padding:0; }
-.mem-inner{ position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .45s cubic-bezier(.34,1.56,.64,1); border-radius:16px; }
+.mem-inner{ display:block; position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .45s cubic-bezier(.34,1.56,.64,1); border-radius:16px; }
 .mem-card.flipped .mem-inner{ transform:rotateY(180deg); }
 .mem-back,.mem-front{ position:absolute; inset:0; backface-visibility:hidden; border-radius:16px; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-pop); }
 .mem-back{ background:linear-gradient(160deg,var(--sky),var(--grape)); }

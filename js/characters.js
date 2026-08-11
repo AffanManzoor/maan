@@ -216,7 +216,7 @@
     const viewBox = mode === 'face' ? '18 4 164 156' : '0 0 200 220';
     const build = BUILDERS[c.id] || buildZiggy;
     const extraClass = opts.className ? ' ' + opts.className : '';
-    return `<svg class="sk-char pose-${pose}${extraClass}" data-char="${c.id}" viewBox="${viewBox}" width="${size}" height="${size}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${c.name} the ${c.species}" style="filter:url(#ds-${inst}); overflow:visible;">${build(inst, c)}</svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" class="sk-char pose-${pose}${extraClass}" data-char="${c.id}" viewBox="${viewBox}" width="${size}" height="${size}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${c.name} the ${c.species}" style="filter:url(#ds-${inst}); overflow:visible;">${build(inst, c)}</svg>`;
   }
 
   /* ---------- logo: a badge of all 4 faces, smiling together ---------- */
@@ -248,7 +248,7 @@
         <circle cx="${p.cx}" cy="${p.cy}" r="${r}" fill="none" stroke="${c.colors.base}" stroke-width="4.5"/>`;
     });
     const bg = opts.transparent ? '' : `<rect x="2" y="2" width="116" height="116" rx="30" fill="#FFFFFF"/>`;
-    return `<svg class="sk-logo" viewBox="0 0 120 120" width="${size}" height="${size}" role="img" aria-label="SuperKids — Ziggy, Luna, Pip and Bolt">${bg}${faces}</svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" class="sk-logo" viewBox="0 0 120 120" width="${size}" height="${size}" role="img" aria-label="SuperKids — Ziggy, Luna, Pip and Bolt">${bg}${faces}</svg>`;
   }
 
   function setPose(svgEl, pose, revertMs) {

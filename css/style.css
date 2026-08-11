@@ -178,17 +178,11 @@ a{ color:inherit; }
 .why h3{ font-size:1.08rem; margin-bottom:.3em; }
 .why p{ font-size:.9rem; margin:0; }
 
-/* ---------- pricing ---------- */
-.plans{ display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin-top:44px; }
-.plan{ background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); padding:30px 28px; width:280px; box-shadow:var(--shadow-soft); position:relative; }
-.plan h3{ font-size:1.15rem; }
-.plan .price{ font-family:var(--font-display); font-size:2.1rem; font-weight:800; margin-bottom:14px; }
-.plan .price small{ font-size:.9rem; font-weight:700; color:var(--ink-soft); }
-.plan ul{ list-style:none; margin:0 0 20px; padding:0; display:flex; flex-direction:column; gap:8px; font-size:.92rem; color:var(--ink-soft); }
-.plan .btn{ width:100%; }
-.plan-best{ border:2px solid var(--sun); transform:scale(1.04); }
-.ribbon{ position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:var(--sun); color:var(--sun-ink); font-weight:800; font-size:.72rem; padding:.35em 1em; border-radius:999px; box-shadow:var(--shadow-pop); white-space:nowrap; }
-.fineprint{ text-align:center; font-size:.78rem; color:var(--ink-faint); margin-top:18px; }
+/* ---------- free badge ---------- */
+.free-badge{ background:#fff; border:2px solid var(--mint); border-radius:var(--radius-lg); padding:36px 28px; max-width:480px; margin:44px auto 0; text-align:center; box-shadow:var(--shadow-soft); }
+.free-badge-icon{ font-size:2.2rem; margin-bottom:6px; }
+.free-badge h3{ font-size:1.3rem; margin-bottom:8px; }
+.free-badge p{ font-size:.92rem; margin-bottom:20px; }
 
 .foot{ text-align:center; padding:40px 16px 60px; }
 .foot .brand{ justify-content:center; margin-bottom:10px; }
