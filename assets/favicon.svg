@@ -1,0 +1,180 @@
+<svg class="sk-logo" viewBox="0 0 120 120" width="256" height="256" role="img" aria-label="SuperKids — Ziggy, Luna, Pip and Bolt"><rect x="2" y="2" width="116" height="116" rx="30" fill="#FFFFFF"/>
+        <clipPath id="clip-logo074fl3w"><circle cx="34" cy="34" r="24"/></clipPath>
+        <g clip-path="url(#clip-logo074fl3w)">
+          <circle cx="34" cy="34" r="24" fill="#FFF3DC"/>
+          <svg x="10" y="10" width="48" height="48" viewBox="18 4 164 156" preserveAspectRatio="xMidYMid slice"><defs>
+      <linearGradient id="bg-logo074fl3w" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FFD08A"></stop>
+        <stop offset="1" stop-color="#FF9D45"></stop>
+      </linearGradient>
+      <radialGradient id="hg-logo074fl3w" cx="35%" cy="28%" r="78%">
+        <stop offset="0" stop-color="#FFD08A"></stop>
+        <stop offset="55%" stop-color="#FF9D45"></stop>
+        <stop offset="100%" stop-color="#E8792A"></stop>
+      </radialGradient>
+      <filter id="ds-logo074fl3w" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#1B1140" flood-opacity="0.22"></feDropShadow>
+      </filter>
+    </defs>
+      <g class="sk-mane"><ellipse cx="169.0" cy="78.0" rx="16" ry="12" fill="#E8792A" transform="rotate(90.0 169.0 78.0)"></ellipse><ellipse cx="159.8" cy="112.5" rx="16" ry="12" fill="#FF9D45" transform="rotate(120.0 159.8 112.5)"></ellipse><ellipse cx="134.5" cy="137.8" rx="16" ry="12" fill="#E8792A" transform="rotate(150.0 134.5 137.8)"></ellipse><ellipse cx="100.0" cy="147.0" rx="16" ry="12" fill="#FF9D45" transform="rotate(180.0 100.0 147.0)"></ellipse><ellipse cx="65.5" cy="137.8" rx="16" ry="12" fill="#E8792A" transform="rotate(210.0 65.5 137.8)"></ellipse><ellipse cx="40.2" cy="112.5" rx="16" ry="12" fill="#FF9D45" transform="rotate(240.0 40.2 112.5)"></ellipse><ellipse cx="31.0" cy="78.0" rx="16" ry="12" fill="#E8792A" transform="rotate(270.0 31.0 78.0)"></ellipse><ellipse cx="40.2" cy="43.5" rx="16" ry="12" fill="#FF9D45" transform="rotate(300.0 40.2 43.5)"></ellipse><ellipse cx="65.5" cy="18.2" rx="16" ry="12" fill="#E8792A" transform="rotate(330.0 65.5 18.2)"></ellipse><ellipse cx="100.0" cy="9.0" rx="16" ry="12" fill="#FF9D45" transform="rotate(360.0 100.0 9.0)"></ellipse><ellipse cx="134.5" cy="18.2" rx="16" ry="12" fill="#E8792A" transform="rotate(390.0 134.5 18.2)"></ellipse><ellipse cx="159.8" cy="43.5" rx="16" ry="12" fill="#FF9D45" transform="rotate(420.0 159.8 43.5)"></ellipse></g>
+      <g class="sk-legs">
+      <ellipse class="sk-leg sk-leg-l" cx="76" cy="206" rx="17" ry="13" fill="#E8792A"></ellipse>
+      <ellipse class="sk-leg sk-leg-r" cx="124" cy="206" rx="17" ry="13" fill="#E8792A"></ellipse>
+    </g>
+      <ellipse cx="100" cy="165" rx="47" ry="41" fill="url(#bg-logo074fl3w)"></ellipse>
+            <ellipse cx="100" cy="177" rx="27" ry="22" fill="#FFF3DC" opacity="0.92"></ellipse>
+      <path d="M92 182 L100 172 L108 182 L100 190 Z" fill="#FFD08A"></path>
+      <g class="sk-arm sk-arm-l"><rect x="37" y="136" width="26" height="60" rx="13" fill="#FF9D45"></rect></g>
+            <g class="sk-arm sk-arm-r"><rect x="137" y="136" width="26" height="60" rx="13" fill="#FF9D45"></rect></g>
+      <circle cx="100" cy="80" r="63" fill="url(#hg-logo074fl3w)"></circle>
+      <path d="M100 20 L108 34 L92 34 Z" fill="#FF9D45"></path>
+      <circle cx="65" cy="45" r="15" fill="#FF9D45"></circle><circle cx="65" cy="46" r="7" fill="#FFF3DC"></circle>
+      <circle cx="135" cy="45" r="15" fill="#FF9D45"></circle><circle cx="135" cy="46" r="7" fill="#FFF3DC"></circle>
+      <ellipse cx="100" cy="100" rx="24" ry="17" fill="#FFF3DC"></ellipse>
+      <g class="sk-eyes">
+      <g><ellipse cx="79" cy="84" rx="16" ry="19" fill="#fff"></ellipse><circle cx="80" cy="89" r="7.6" fill="#2B2145"></circle><circle cx="76" cy="81" r="2.6" fill="#fff"></circle></g>
+      <g><ellipse cx="121" cy="84" rx="16" ry="19" fill="#fff"></ellipse><circle cx="122" cy="89" r="7.6" fill="#2B2145"></circle><circle cx="118" cy="81" r="2.6" fill="#fff"></circle></g>
+    </g>
+      <g class="sk-blush" opacity="0.5">
+      <ellipse cx="56" cy="103" rx="11" ry="6.5" fill="#FF88A0"></ellipse>
+      <ellipse cx="144" cy="103" rx="11" ry="6.5" fill="#FF88A0"></ellipse>
+    </g>
+      <ellipse cx="100" cy="93" rx="5.4" ry="3.8" fill="#2B2145"></ellipse>
+      <path class="sk-mouth" d="M 87 111 Q 100 124 113 111" fill="none" stroke="#2B2145" stroke-width="5" stroke-linecap="round"></path></svg>
+        </g>
+        <circle cx="34" cy="34" r="24" fill="none" stroke="#FF9D45" stroke-width="4.5"/>
+        <clipPath id="clip-logo1j2hcf6"><circle cx="86" cy="34" r="24"/></clipPath>
+        <g clip-path="url(#clip-logo1j2hcf6)">
+          <circle cx="86" cy="34" r="24" fill="#F3EEFF"/>
+          <svg x="62" y="10" width="48" height="48" viewBox="18 4 164 156" preserveAspectRatio="xMidYMid slice"><defs>
+      <linearGradient id="bg-logo1j2hcf6" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#C9B3FF"></stop>
+        <stop offset="1" stop-color="#9B6BFF"></stop>
+      </linearGradient>
+      <radialGradient id="hg-logo1j2hcf6" cx="35%" cy="28%" r="78%">
+        <stop offset="0" stop-color="#C9B3FF"></stop>
+        <stop offset="55%" stop-color="#9B6BFF"></stop>
+        <stop offset="100%" stop-color="#7B4FE0"></stop>
+      </radialGradient>
+      <filter id="ds-logo1j2hcf6" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#1B1140" flood-opacity="0.22"></feDropShadow>
+      </filter>
+    </defs>
+      <g class="sk-legs">
+      <ellipse class="sk-leg sk-leg-l" cx="76" cy="206" rx="17" ry="13" fill="#7B4FE0"></ellipse>
+      <ellipse class="sk-leg sk-leg-r" cx="124" cy="206" rx="17" ry="13" fill="#7B4FE0"></ellipse>
+    </g>
+      <ellipse cx="100" cy="165" rx="47" ry="41" fill="url(#bg-logo1j2hcf6)"></ellipse>
+            <ellipse cx="100" cy="177" rx="27" ry="22" fill="#F3EEFF" opacity="0.92"></ellipse>
+      <path d="M100 158 l9 14 h-18 z" fill="#C9B3FF" opacity="0.8"></path>
+      <g class="sk-arm sk-arm-l" style="transform-box:fill-box;transform-origin:80% 15%;"><path d="M 32 148 C 0 138 -4 190 26 212 C 42 196 38 164 32 148 Z" fill="#9B6BFF"></path>
+              <path d="M 32 165 q -11 13 0 28" fill="none" stroke="#7B4FE0" stroke-width="3" stroke-linecap="round" opacity="0.5"></path></g>
+      <g class="sk-arm sk-arm-r" style="transform-box:fill-box;transform-origin:20% 15%;"><path d="M 168 148 C 200 138 204 190 174 212 C 158 196 162 164 168 148 Z" fill="#9B6BFF"></path>
+              <path d="M 168 165 q 11 13 0 28" fill="none" stroke="#7B4FE0" stroke-width="3" stroke-linecap="round" opacity="0.5"></path></g>
+      <circle cx="100" cy="80" r="63" fill="url(#hg-logo1j2hcf6)"></circle>
+      <path d="M70 30 L58 6 L83 24 Z" fill="#9B6BFF"></path>
+      <path d="M130 30 L142 6 L117 24 Z" fill="#9B6BFF"></path>
+      <circle cx="79" cy="83" r="25" fill="#fff"></circle>
+      <circle cx="121" cy="83" r="25" fill="#fff"></circle>
+      <circle cx="79" cy="83" r="25" fill="none" stroke="#7B4FE0" stroke-width="5"></circle>
+      <circle cx="121" cy="83" r="25" fill="none" stroke="#7B4FE0" stroke-width="5"></circle>
+      <circle cx="80" cy="87" r="8.6" fill="#2B2145"></circle><circle cx="76" cy="80" r="2.8" fill="#fff"></circle>
+      <circle cx="122" cy="87" r="8.6" fill="#2B2145"></circle><circle cx="118" cy="80" r="2.8" fill="#fff"></circle>
+      <g class="sk-blush" opacity="0.5">
+      <ellipse cx="56" cy="107" rx="11" ry="6.5" fill="#FF88A0"></ellipse>
+      <ellipse cx="144" cy="107" rx="11" ry="6.5" fill="#FF88A0"></ellipse>
+    </g>
+      <path d="M93 97 L107 97 L100 110 Z" fill="#FFB100"></path></svg>
+        </g>
+        <circle cx="86" cy="34" r="24" fill="none" stroke="#9B6BFF" stroke-width="4.5"/>
+        <clipPath id="clip-logo26h17jw"><circle cx="34" cy="86" r="24"/></clipPath>
+        <g clip-path="url(#clip-logo26h17jw)">
+          <circle cx="34" cy="86" r="24" fill="#FFEDE9"/>
+          <svg x="10" y="62" width="48" height="48" viewBox="18 4 164 156" preserveAspectRatio="xMidYMid slice"><defs>
+      <linearGradient id="bg-logo26h17jw" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FFB3A6"></stop>
+        <stop offset="1" stop-color="#FF6F61"></stop>
+      </linearGradient>
+      <radialGradient id="hg-logo26h17jw" cx="35%" cy="28%" r="78%">
+        <stop offset="0" stop-color="#FFB3A6"></stop>
+        <stop offset="55%" stop-color="#FF6F61"></stop>
+        <stop offset="100%" stop-color="#E5503F"></stop>
+      </radialGradient>
+      <filter id="ds-logo26h17jw" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#1B1140" flood-opacity="0.22"></feDropShadow>
+      </filter>
+    </defs>
+      <g class="sk-tail" style="transform-box:fill-box;transform-origin:10% 95%;">
+        <path d="M136 180 C176 179 198 145 183 106 C209 130 205 175 168 193 C157 199 143 194 136 180 Z" fill="#FF6F61"></path>
+        <circle cx="188" cy="118" r="12" fill="#fff"></circle>
+      </g>
+      <g class="sk-legs">
+      <ellipse class="sk-leg sk-leg-l" cx="76" cy="206" rx="17" ry="13" fill="#E5503F"></ellipse>
+      <ellipse class="sk-leg sk-leg-r" cx="124" cy="206" rx="17" ry="13" fill="#E5503F"></ellipse>
+    </g>
+      <ellipse cx="100" cy="165" rx="47" ry="41" fill="url(#bg-logo26h17jw)"></ellipse>
+            <ellipse cx="100" cy="177" rx="27" ry="22" fill="#FFEDE9" opacity="0.92"></ellipse>
+      <g class="sk-arm sk-arm-l"><rect x="37" y="136" width="26" height="60" rx="13" fill="#FF6F61"></rect></g>
+            <g class="sk-arm sk-arm-r"><rect x="137" y="136" width="26" height="60" rx="13" fill="#FF6F61"></rect></g>
+      <circle cx="100" cy="80" r="63" fill="url(#hg-logo26h17jw)"></circle>
+      <path d="M62 40 L48 0 L89 26 Z" fill="#FF6F61"></path>
+      <path d="M68 33 L60 10 L83 26 Z" fill="#FFB3A6"></path>
+      <path d="M138 40 L152 0 L111 26 Z" fill="#FF6F61"></path>
+      <path d="M132 33 L140 10 L117 26 Z" fill="#FFB3A6"></path>
+      <ellipse cx="100" cy="101" rx="23" ry="17" fill="#fff"></ellipse>
+      <g class="sk-eyes">
+      <g><ellipse cx="79" cy="82" rx="16" ry="19" fill="#fff"></ellipse><circle cx="80" cy="87" r="7.6" fill="#2B2145"></circle><circle cx="76" cy="79" r="2.6" fill="#fff"></circle></g>
+      <g><ellipse cx="121" cy="82" rx="16" ry="19" fill="#fff"></ellipse><circle cx="122" cy="87" r="7.6" fill="#2B2145"></circle><circle cx="118" cy="79" r="2.6" fill="#fff"></circle></g>
+    </g>
+      <g class="sk-blush" opacity="0.5">
+      <ellipse cx="56" cy="100" rx="11" ry="6.5" fill="#FF88A0"></ellipse>
+      <ellipse cx="144" cy="100" rx="11" ry="6.5" fill="#FF88A0"></ellipse>
+    </g>
+      <ellipse cx="100" cy="94" rx="5.6" ry="4" fill="#2B2145"></ellipse>
+      <path class="sk-mouth" d="M 88 113 Q 100 126 112 113" fill="none" stroke="#2B2145" stroke-width="5" stroke-linecap="round"></path></svg>
+        </g>
+        <circle cx="34" cy="86" r="24" fill="none" stroke="#FF6F61" stroke-width="4.5"/>
+        <clipPath id="clip-logo3j5bwn2"><circle cx="86" cy="86" r="24"/></clipPath>
+        <g clip-path="url(#clip-logo3j5bwn2)">
+          <circle cx="86" cy="86" r="24" fill="#E8FFF6"/>
+          <svg x="62" y="62" width="48" height="48" viewBox="18 4 164 156" preserveAspectRatio="xMidYMid slice"><defs>
+      <linearGradient id="bg-logo3j5bwn2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#9CF0D4"></stop>
+        <stop offset="1" stop-color="#2FD8A0"></stop>
+      </linearGradient>
+      <radialGradient id="hg-logo3j5bwn2" cx="35%" cy="28%" r="78%">
+        <stop offset="0" stop-color="#9CF0D4"></stop>
+        <stop offset="55%" stop-color="#2FD8A0"></stop>
+        <stop offset="100%" stop-color="#1CAE80"></stop>
+      </radialGradient>
+      <filter id="ds-logo3j5bwn2" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#1B1140" flood-opacity="0.22"></feDropShadow>
+      </filter>
+    </defs>
+      <g class="sk-legs">
+      <rect class="sk-leg sk-leg-l" x="67" y="196" width="22" height="24" rx="9" fill="#1CAE80"></rect>
+      <rect class="sk-leg sk-leg-r" x="111" y="196" width="22" height="24" rx="9" fill="#1CAE80"></rect>
+    </g>
+      <ellipse cx="100" cy="165" rx="47" ry="41" fill="url(#bg-logo3j5bwn2)"></ellipse>
+            <ellipse cx="100" cy="177" rx="27" ry="22" fill="#E8FFF6" opacity="0.92"></ellipse>
+      <circle cx="100" cy="174" r="15" fill="#9CF0D4"></circle>
+      <circle cx="91" cy="174" r="4" fill="#fff"></circle>
+      <path d="M100 166 L105 174 L100 182 L95 174 Z" fill="#1CAE80"></path>
+      <circle cx="109" cy="174" r="4" fill="#1CAE80"></circle>
+      <g class="sk-arm sk-arm-l"><rect x="37" y="136" width="26" height="58" rx="10" fill="#2FD8A0"></rect><circle cx="50" cy="140" r="7" fill="#1CAE80"></circle></g><g class="sk-arm sk-arm-r"><rect x="137" y="136" width="26" height="58" rx="10" fill="#2FD8A0"></rect><circle cx="150" cy="140" r="7" fill="#1CAE80"></circle></g>
+      <rect x="40" y="24" width="120" height="104" rx="34" fill="url(#hg-logo3j5bwn2)"></rect>
+      <circle cx="40" cy="76" r="8" fill="#1CAE80"></circle><circle cx="160" cy="76" r="8" fill="#1CAE80"></circle>
+      <rect x="60" y="48" width="80" height="58" rx="20" fill="#241A44"></rect>
+      <g class="sk-eyes">
+        <rect x="74" y="68" width="20" height="14" rx="7" fill="#9CF0D4"></rect>
+        <rect x="106" y="68" width="20" height="14" rx="7" fill="#9CF0D4"></rect>
+      </g>
+      <rect x="87" y="89" width="26" height="7" rx="3.5" fill="#9CF0D4" opacity="0.9"></rect>
+      <g class="sk-blush" opacity="0.5">
+      <ellipse cx="56" cy="102" rx="11" ry="6.5" fill="#FF88A0"></ellipse>
+      <ellipse cx="144" cy="102" rx="11" ry="6.5" fill="#FF88A0"></ellipse>
+    </g>
+      <line x1="100" y1="24" x2="100" y2="6" stroke="#1CAE80" stroke-width="5" stroke-linecap="round"></line>
+      <circle class="sk-antenna" cx="100" cy="6" r="8" fill="#9CF0D4"></circle></svg>
+        </g>
+        <circle cx="86" cy="86" r="24" fill="none" stroke="#2FD8A0" stroke-width="4.5"/></svg>
