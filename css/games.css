@@ -23,7 +23,7 @@
 .q-prompt b{ color:var(--accent-dark,var(--coral-dark)); }
 .spk-btn{ flex:none; width:44px; height:44px; border-radius:50%; border:none; background:var(--sky); color:#fff; font-size:1.1rem; cursor:pointer; box-shadow:0 4px 0 var(--sky-dark); transition:transform .12s; }
 .spk-btn:active{ transform:translateY(3px); box-shadow:0 1px 0 var(--sky-dark); }
-.q-visual{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:center; }
+.q-visual{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:center; width:100%; }
 .big-eq{ font-family:var(--font-display); font-size:2.3rem; font-weight:800; }
 .big-emoji{ font-size:3.8rem; line-height:1.1; display:block; }
 
@@ -31,8 +31,8 @@
 .obj-ico{ font-size:1.8rem; }
 .obj-op{ font-family:var(--font-display); font-size:1.9rem; font-weight:800; color:var(--accent-dark,var(--coral-dark)); }
 
-.count-field{ position:relative; width:100%; max-width:520px; height:220px; background:#fff; border-radius:var(--radius-lg); border:1px solid var(--line); box-shadow:var(--shadow-soft); overflow:hidden; }
-.count-ico{ position:absolute; font-size:1.9rem; transform-origin:center; }
+.count-field{ position:relative; width:100%; max-width:520px; height:260px; background:#fff; border-radius:var(--radius-lg); border:1px solid var(--line); box-shadow:var(--shadow-soft); overflow:hidden; }
+.count-ico{ position:absolute; font-size:3rem; transform-origin:center; line-height:1; }
 
 .pattern-seq{ display:flex; align-items:center; gap:10px; font-size:2.2rem; background:#fff; padding:16px 22px; border-radius:var(--radius-md); box-shadow:var(--shadow-soft); border:1px solid var(--line); flex-wrap:wrap; justify-content:center; }
 .pattern-blank{ width:52px; height:52px; border-radius:14px; border:3px dashed var(--accent,var(--grape)); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; color:var(--accent,var(--grape)); }

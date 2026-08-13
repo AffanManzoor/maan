@@ -16,12 +16,23 @@
     let distractorObj = SK.pickOne(OBJS);
     while (distractorObj === obj) distractorObj = SK.pickOne(OBJS);
 
+    // Bias placement toward the center of the field. With only a
+    // handful of items a full-width random scatter can land them all
+    // near one edge; the spread only widens out once there are enough
+    // items that they actually need the room to stay countable.
+    const total = n + dn;
+    const spread = Math.min(1, 0.35 + total * 0.045);
+    const rangeX = 38 * spread, rangeY = 33 * spread;
+    function placement() {
+      return { x: 50 + SK.rand(-rangeX, rangeX), y: 46 + SK.rand(-rangeY, rangeY), r: SK.rand(-18, 18) };
+    }
+
     let items = [];
-    for (let i = 0; i < n; i++) items.push({ e: obj, x: SK.rand(4, 88), y: SK.rand(4, 78), r: SK.rand(-18, 18) });
-    for (let i = 0; i < dn; i++) items.push({ e: distractorObj, x: SK.rand(4, 88), y: SK.rand(4, 78), r: SK.rand(-18, 18) });
+    for (let i = 0; i < n; i++) items.push(Object.assign({ e: obj }, placement()));
+    for (let i = 0; i < dn; i++) items.push(Object.assign({ e: distractorObj }, placement()));
     items = SK.shuffle(items);
 
-    const visualHTML = `<div class="count-field">${items.map((it) => `<span class="count-ico" style="left:${it.x}%;top:${it.y}%;transform:rotate(${it.r.toFixed(1)}deg)">${it.e}</span>`).join('')}</div>`;
+    const visualHTML = `<div class="count-field">${items.map((it) => `<span class="count-ico" style="left:${it.x}%;top:${it.y}%;transform:translate(-50%,-50%) rotate(${it.r.toFixed(1)}deg)">${it.e}</span>`).join('')}</div>`;
 
     const set = new Set([n]);
     let guard = 0;
