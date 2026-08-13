@@ -414,7 +414,70 @@
       return { destroy() { SKAudio.stopSpeak(); } };
     }
 
-    return { mountShell, speakerButton, confettiFromEl, celebrate, runQuiz, exitToMap };
+    /* ---------- customizer: preview + category swatches + Done ----------
+       Powers the creative "build your own" games (bear, snowman, cake).
+       Not graded — every finish is a full 3-star reward, since creative
+       play shouldn't feel judged. opts:
+         categories: [{ key, label, options:[{value,label,swatch|render}] }]
+         renderPreview(state) -> svg/html string
+         doneLabel: button text (default "All Done! ✨")
+         beforeCelebrate(state, stageEl, proceed): optional; call proceed()
+           when a custom pre-celebration sequence (e.g. cake's oven) finishes
+         onDone(state): optional side-effect hook, fires before celebrate */
+    function runCustomizer(root, gameDef, level, opts) {
+      const shell = mountShell(root, gameDef);
+      shell.setDots(0, 0);
+      const state = {};
+      opts.categories.forEach((cat) => { state[cat.key] = cat.default; });
+
+      function render() {
+        shell.stage.innerHTML = `
+          <div class="cust-preview" id="custPreview">${opts.renderPreview(state)}</div>
+          <div class="cust-categories" id="custCats"></div>
+          <button class="btn btn-xl btn-sun cust-done" type="button">${opts.doneLabel || 'All Done! ✨'}</button>`;
+
+        const catsWrap = shell.stage.querySelector('#custCats');
+        opts.categories.forEach((cat) => {
+          const row = document.createElement('div');
+          row.className = 'cust-row';
+          row.innerHTML = `<div class="cust-row-label">${cat.label}</div>`;
+          const swatchWrap = document.createElement('div');
+          swatchWrap.className = 'cust-swatches';
+          cat.options.forEach((opt) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'cust-swatch' + (state[cat.key] === opt.value ? ' active' : '');
+            btn.setAttribute('aria-label', opt.label);
+            btn.title = opt.label;
+            btn.innerHTML = opt.render ? opt.render() : (opt.swatch ? `<span class="cust-swatch-color" style="background:${opt.swatch}"></span>` : `<span class="cust-swatch-emoji">${opt.icon || '·'}</span>`);
+            btn.addEventListener('click', () => {
+              if (state[cat.key] === opt.value) return;
+              state[cat.key] = opt.value;
+              SKAudio.play('pop');
+              render();
+            });
+            swatchWrap.appendChild(btn);
+          });
+          row.appendChild(swatchWrap);
+          catsWrap.appendChild(row);
+        });
+
+        shell.stage.querySelector('.cust-done').addEventListener('click', () => {
+          SKAudio.play('star');
+          if (opts.onDone) opts.onDone(state);
+          const proceed = () => celebrate(root, gameDef, level, 3, 3, {
+            onReplay() { opts.categories.forEach((cat) => { state[cat.key] = cat.default; }); render(); }
+          });
+          if (opts.beforeCelebrate) opts.beforeCelebrate(state, shell.stage, proceed);
+          else proceed();
+        });
+      }
+
+      render();
+      return { destroy() { SKAudio.stopSpeak(); } };
+    }
+
+    return { mountShell, speakerButton, confettiFromEl, celebrate, runQuiz, runCustomizer, exitToMap };
   })();
 
   global.registerGame = registerGame;
