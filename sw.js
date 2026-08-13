@@ -1,16 +1,19 @@
 /* ============================================================
    SuperKids — sw.js
-   Minimal offline-first service worker: cache the app shell on
-   install, serve from cache first, fall back to network, and
-   fall back to cache again if the network is unavailable.
+   Network-first service worker: always try to fetch the latest
+   version when online (so a deploy is never stuck behind a stale
+   cache), keep the cache updated as we go, and only fall back to
+   the cache when the network genuinely isn't available (offline
+   play). Bump CACHE_NAME on any deploy that must reach devices
+   with an already-installed worker sooner rather than later.
    ============================================================ */
-const CACHE_NAME = 'superkids-v1';
+const CACHE_NAME = 'superkids-v2';
 const CORE_ASSETS = [
   './', './index.html', './manifest.json',
-  './css/style.css', './css/games.css',
-  './js/core.js', './js/audio.js', './js/characters.js', './js/shell.js', './js/app.js',
-  './js/games/math.js', './js/games/counting.js', './js/games/sorting.js', './js/games/jigsaw.js',
-  './js/games/letters.js', './js/games/shapes.js', './js/games/memory.js', './js/games/patterns.js', './js/games/exam.js',
+  './css/style.css?v=3', './css/games.css?v=3',
+  './js/core.js?v=3', './js/audio.js?v=3', './js/characters.js?v=3', './js/shell.js?v=3', './js/app.js?v=3',
+  './js/games/math.js?v=3', './js/games/counting.js?v=3', './js/games/sorting.js?v=3', './js/games/jigsaw.js?v=3',
+  './js/games/letters.js?v=3', './js/games/shapes.js?v=3', './js/games/memory.js?v=3', './js/games/patterns.js?v=3', './js/games/exam.js?v=3',
   './assets/favicon.svg'
 ];
 
@@ -34,15 +37,12 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      const network = fetch(event.request).then((res) => {
-        if (res && res.status === 200 && res.type === 'basic') {
-          const clone = res.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-        }
-        return res;
-      }).catch(() => cached);
-      return cached || network;
-    })
+    fetch(event.request).then((res) => {
+      if (res && res.status === 200 && res.type === 'basic') {
+        const clone = res.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+      }
+      return res;
+    }).catch(() => caches.match(event.request))
   );
 });
