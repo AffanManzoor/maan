@@ -51,7 +51,7 @@
     const sizes = TIER_SIZES.slice(0, layers);
     let bottom = 198;
     let body = `<ellipse cx="100" cy="202" rx="84" ry="10" fill="#FFFDF8" stroke="#EDE4D2" stroke-width="2"/>`;
-    let topY = bottom;
+    const tiers = [];
     sizes.forEach((sz) => {
       const y0 = bottom - sz.h;
       if (kind === 'round') {
@@ -61,10 +61,11 @@
         body += `<rect x="${100 - sz.w}" y="${y0}" width="${sz.w * 2}" height="${sz.h}" rx="8" fill="${color}" stroke="rgba(0,0,0,.08)" stroke-width="1.5"/>`;
         body += `<rect x="${100 - sz.w}" y="${y0}" width="${sz.w * 2}" height="10" rx="4" fill="${dark}"/>`;
       }
+      tiers.push({ y0, halfW: sz.w });
       bottom = y0 + 6;
-      topY = y0;
     });
-    return { body, topY };
+    tiers.reverse(); // topmost tier first, so candles/topper positioning reads top-down
+    return { body, topY: tiers[0].y0, tiers };
   }
 
   function heartStarBody(kind, color, layers) {
@@ -73,15 +74,37 @@
     const x = 100 - size / 2, y = 130 - size / 2;
     const body = `<ellipse cx="100" cy="202" rx="84" ry="10" fill="#FFFDF8" stroke="#EDE4D2" stroke-width="2"/>
       <g transform="translate(${x} ${y})">${SK.shapeSVG(kind, color, size)}</g>`;
-    return { body, topY: y + size * 0.12 };
+    const topY = y + size * 0.12;
+    // hearts/stars aren't tiered, so treat the whole shape as one surface for candle placement
+    return { body, topY, tiers: [{ y0: topY, halfW: 68 }] };
   }
 
   function cakeBody(shape, color, layers) {
     return (shape === 'round' || shape === 'square') ? stackedBody(shape, color, layers) : heartStarBody(shape, color, layers);
   }
 
+  // round-robins candles across tiers starting from the top, so a single candle sits on
+  // top (classic look) and extra candles fill each lower tier in turn as the count grows
+  function splitCandlesAcrossTiers(n, tierCount) {
+    const out = new Array(tierCount).fill(0);
+    for (let i = 0; i < n; i++) out[i % tierCount] += 1;
+    return out;
+  }
+
+  function candleGroupHTML(count, topPct, tierHalfW) {
+    if (count <= 0) return '';
+    const spanPct = Math.min(tierHalfW * 0.82, count * 8);
+    const startPct = 50 - spanPct / 2;
+    let html = '';
+    for (let i = 0; i < count; i++) {
+      const leftPct = count === 1 ? 50 : startPct + (spanPct * (i / (count - 1)));
+      html += `<span class="cust-acc" style="left:${leftPct}%;top:${Math.max(topPct, 10)}%;font-size:1.3rem;">🕯️</span>`;
+    }
+    return html;
+  }
+
   function renderPreview(state) {
-    const { body, topY } = cakeBody(state.shape, state.color, state.layers);
+    const { body, topY, tiers } = cakeBody(state.shape, state.color, state.layers);
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" role="img" aria-label="Your cake">${body}</svg>`;
     let overlay = '';
     const topPct = Math.max(4, (topY / 220) * 100);
@@ -89,13 +112,11 @@
       overlay += `<span class="cust-acc" style="left:50%;top:${Math.max(topPct - 8, 4)}%;font-size:1.8rem;">${TOPPER_EMOJI[state.topper]}</span>`;
     }
     if (state.candles > 0) {
-      const n = state.candles;
-      const spanPct = Math.min(56, n * 7);
-      const startPct = 50 - spanPct / 2;
-      for (let i = 0; i < n; i++) {
-        const leftPct = n === 1 ? 50 : startPct + (spanPct * (i / (n - 1)));
-        overlay += `<span class="cust-acc" style="left:${leftPct}%;top:${Math.max(topPct, 10)}%;font-size:1.3rem;">🕯️</span>`;
-      }
+      const counts = splitCandlesAcrossTiers(state.candles, tiers.length);
+      tiers.forEach((t, i) => {
+        const pct = Math.max(4, (t.y0 / 220) * 100);
+        overlay += candleGroupHTML(counts[i], pct, t.halfW);
+      });
     }
     return svg + overlay;
   }
