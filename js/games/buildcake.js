@@ -93,12 +93,12 @@
 
   function candleGroupHTML(count, topPct, tierHalfW) {
     if (count <= 0) return '';
-    const spanPct = Math.min(tierHalfW * 0.82, count * 8);
+    const spanPct = Math.min(tierHalfW * 0.82, count * 9);
     const startPct = 50 - spanPct / 2;
     let html = '';
     for (let i = 0; i < count; i++) {
       const leftPct = count === 1 ? 50 : startPct + (spanPct * (i / (count - 1)));
-      html += `<span class="cust-acc" style="left:${leftPct}%;top:${Math.max(topPct, 10)}%;font-size:1.3rem;">🕯️</span>`;
+      html += `<span class="cust-acc" style="left:${leftPct}%;top:${Math.max(topPct, 10)}%;font-size:1.7rem;">🕯️</span>`;
     }
     return html;
   }

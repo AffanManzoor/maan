@@ -24,9 +24,9 @@
   ];
   const HAT_ACC = [
     { value: 'none', label: 'None', icon: '·' },
-    { value: 'tophat', label: 'Top Hat', icon: '🎩', top: 2 },
-    { value: 'cap', label: 'Beanie', icon: '🧢', top: 4 },
-    { value: 'party', label: 'Party Hat', icon: '🎉', top: 2 }
+    { value: 'tophat', label: 'Top Hat', icon: '🎩', top: 7 },
+    { value: 'cap', label: 'Beanie', icon: '🧢', top: 11 },
+    { value: 'party', label: 'Party Hat', icon: '🎉', top: 7 }
   ];
   const FACE_ACC = [
     { value: 'none', label: 'None', icon: '·' },
@@ -73,11 +73,11 @@
     const scarfColor = state.scarf === 'none' ? null : state.scarf;
     let overlay = '';
     const hat = findIcon(HAT_ACC, state.hat);
-    if (hat) overlay += `<span class="cust-acc" style="left:50%;top:${hat.top || 4}%;font-size:2.6rem;">${hat.icon}</span>`;
+    if (hat) overlay += `<span class="cust-acc" style="left:50%;top:${hat.top || 10}%;font-size:5.5rem;">${hat.icon}</span>`;
     const face = findIcon(FACE_ACC, state.face);
-    if (face) overlay += `<span class="cust-acc" style="left:50%;top:24%;font-size:2.1rem;">${face.icon}</span>`;
+    if (face) overlay += `<span class="cust-acc" style="left:50%;top:27%;font-size:5.2rem;">${face.icon}</span>`;
     const held = findIcon(HELD_ACC, state.held);
-    if (held) overlay += `<span class="cust-acc" style="left:80%;top:50%;font-size:2rem;">${held.icon}</span>`;
+    if (held) overlay += `<span class="cust-acc" style="left:86%;top:40%;font-size:3.6rem;">${held.icon}</span>`;
     return snowmanSVG(tint, scarfColor) + overlay;
   }
 

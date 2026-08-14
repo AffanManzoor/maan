@@ -49,10 +49,10 @@
 
   const HEAD_ACC = [
     { value: 'none', label: 'None', icon: '·' },
-    { value: 'bow', label: 'Bow', icon: '🎀', top: 6 },
-    { value: 'crown', label: 'Crown', icon: '👑', top: 4 },
-    { value: 'tophat', label: 'Top Hat', icon: '🎩', top: 2 },
-    { value: 'cap', label: 'Cap', icon: '🧢', top: 4 }
+    { value: 'bow', label: 'Bow', icon: '🎀', top: 11 },
+    { value: 'crown', label: 'Crown', icon: '👑', top: 10 },
+    { value: 'tophat', label: 'Top Hat', icon: '🎩', top: 8 },
+    { value: 'cap', label: 'Cap', icon: '🧢', top: 10 }
   ];
   const NECK_ACC = [
     { value: 'none', label: 'None', icon: '·' },
@@ -79,13 +79,13 @@
     const fur = FUR_COLORS.find((c) => c.label === state.furColor) || FUR_COLORS[0];
     let overlay = '';
     const head = findIcon(HEAD_ACC, state.head);
-    if (head) overlay += `<span class="cust-acc" style="left:50%;top:${head.top || 5}%;font-size:2.6rem;">${head.icon}</span>`;
+    if (head) overlay += `<span class="cust-acc" style="left:50%;top:${head.top || 10}%;font-size:8rem;">${head.icon}</span>`;
     const neck = findIcon(NECK_ACC, state.neck);
-    if (neck) overlay += `<span class="cust-acc" style="left:50%;top:59%;font-size:2.2rem;">${neck.icon}</span>`;
+    if (neck) overlay += `<span class="cust-acc" style="left:50%;top:61%;font-size:5rem;">${neck.icon}</span>`;
     const face = findIcon(FACE_ACC, state.face);
-    if (face) overlay += `<span class="cust-acc" style="left:50%;top:35%;font-size:2.3rem;">${face.icon}</span>`;
+    if (face) overlay += `<span class="cust-acc" style="left:50%;top:35%;font-size:8rem;">${face.icon}</span>`;
     const held = findIcon(HELD_ACC, state.held);
-    if (held) overlay += `<span class="cust-acc" style="left:80%;top:78%;font-size:2rem;">${held.icon}</span>`;
+    if (held) overlay += `<span class="cust-acc" style="left:76%;top:82%;font-size:4.2rem;">${held.icon}</span>`;
     return bearSVG(fur) + overlay;
   }
 
