@@ -1,10 +1,13 @@
 /* ============================================================
    SuperKids — Car Wash
    Hosted by Ziggy the Lion. Subject: creative (not graded).
-   Tap the dirt to clean the car, then paint it your favorite color.
+   Tap the dirt, drag the shower to rinse, drag the towel to dry
+   and shine, then paint the car your favorite color.
    ============================================================ */
 (function () {
   'use strict';
+
+  const ZONES = 3;
 
   const SPOTS = [
     { leftPct: 18, topPct: 58, size: 44, rot: -15 },
@@ -49,11 +52,40 @@
     </svg>`;
   }
 
+  function showerSVG(size) {
+    return `<svg width="${size}" height="${size}" viewBox="0 0 60 60" aria-hidden="true">
+      <rect x="26" y="2" width="8" height="18" rx="4" fill="#B7C4D6"/>
+      <ellipse cx="30" cy="26" rx="19" ry="11" fill="#DCE6F2" stroke="#B7C4D6" stroke-width="2.5"/>
+      <circle cx="17" cy="28" r="2.2" fill="#4EA8FF"/><circle cx="25" cy="32" r="2.2" fill="#4EA8FF"/>
+      <circle cx="35" cy="32" r="2.2" fill="#4EA8FF"/><circle cx="43" cy="28" r="2.2" fill="#4EA8FF"/>
+      <line x1="17" y1="32" x2="13" y2="45" stroke="#9ED3FF" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="25" y1="36" x2="22" y2="50" stroke="#9ED3FF" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="35" y1="36" x2="38" y2="50" stroke="#9ED3FF" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="43" y1="32" x2="47" y2="45" stroke="#9ED3FF" stroke-width="3.5" stroke-linecap="round"/>
+    </svg>`;
+  }
+
+  function towelSVG(size) {
+    return `<svg width="${size}" height="${size}" viewBox="0 0 60 60" aria-hidden="true">
+      <rect x="6" y="8" width="48" height="44" rx="7" fill="#FFE58A" stroke="#F2CB4E" stroke-width="2.5"/>
+      <rect x="6" y="20" width="48" height="6" fill="#fff" opacity="0.55"/>
+      <rect x="6" y="34" width="48" height="6" fill="#fff" opacity="0.55"/>
+    </svg>`;
+  }
+
+  function zoneAt(stageEl, clientX) {
+    const r = stageEl.getBoundingClientRect();
+    const pct = Math.min(0.999, Math.max(0, (clientX - r.left) / r.width));
+    return Math.floor(pct * ZONES);
+  }
+
   function mountWash(root, gameDef, level) {
     const shell = SKPlay.mountShell(root, gameDef);
     let spots, remaining, carColor;
+    let activeCleanup = null;
 
     function startRound() {
+      if (activeCleanup) { activeCleanup(); activeCleanup = null; }
       carColor = '#B7B7C2';
       const n = level === 1 ? 5 : (level === 2 ? 7 : 8);
       spots = SPOTS.slice(0, n).map((s, i) => Object.assign({ id: 'd' + i + '_' + SK.uid(), cleaned: false }, s));
@@ -64,6 +96,7 @@
         <p class="wash-instructions">Tap the dirt to wash the car clean!</p>
         <p class="wash-progress" id="washProgress"></p>
         <div class="wash-stage" id="washStage"><div class="wash-shine" id="washShine"></div></div>
+        <div id="washToolSection"></div>
         <div id="washPaintSection"></div>`;
 
       renderCar();
@@ -105,7 +138,108 @@
       remaining--;
       updateProgress();
       shell.setDots(spots.length - remaining, spots.length);
-      if (remaining <= 0) setTimeout(finishWashing, 450);
+      if (remaining <= 0) setTimeout(startRinse, 450);
+    }
+
+    // shared drag-to-cover-zones mechanic, used by both the shower and the towel:
+    // dragging anywhere on the wash stage moves the tool there (forgiving for small
+    // fingers), and each new horizontal zone it crosses fires opts.onZone once.
+    function mountDragTool(opts) {
+      const stageEl = shell.stage.querySelector('#washStage');
+      const tool = document.createElement('div');
+      tool.className = 'wash-tool ' + opts.className;
+      tool.innerHTML = opts.svgFn(opts.size);
+      tool.style.left = opts.startLeft;
+      tool.style.top = opts.startTop;
+      stageEl.appendChild(tool);
+
+      const zonesDone = new Set();
+      let dragging = false;
+
+      function moveTo(clientX, clientY) {
+        const r = stageEl.getBoundingClientRect();
+        const xPct = Math.min(96, Math.max(4, ((clientX - r.left) / r.width) * 100));
+        const yPct = Math.min(90, Math.max(8, ((clientY - r.top) / r.height) * 100));
+        tool.style.left = xPct + '%';
+        tool.style.top = yPct + '%';
+        const zone = zoneAt(stageEl, clientX);
+        if (!zonesDone.has(zone)) {
+          zonesDone.add(zone);
+          shell.setDots(zonesDone.size, ZONES);
+          opts.onZone(zonesDone.size, tool);
+        }
+      }
+      function onDown(e) { dragging = true; moveTo(e.clientX, e.clientY); }
+      function onMove(e) { if (dragging) moveTo(e.clientX, e.clientY); }
+      function onUp() { dragging = false; }
+
+      stageEl.addEventListener('pointerdown', onDown);
+      window.addEventListener('pointermove', onMove);
+      window.addEventListener('pointerup', onUp);
+
+      const cleanup = () => {
+        stageEl.removeEventListener('pointerdown', onDown);
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('pointerup', onUp);
+      };
+      activeCleanup = cleanup;
+      return { tool, cleanup };
+    }
+
+    function startRinse() {
+      shell.stage.querySelector('.wash-instructions').textContent = 'Drag the shower to rinse off the soap!';
+      shell.stage.querySelector('#washProgress').textContent = `0 / ${ZONES} rinsed`;
+      shell.setDots(0, ZONES);
+
+      const section = shell.stage.querySelector('#washToolSection');
+      section.innerHTML = `<button class="btn btn-xl btn-sky wash-rinse-done" type="button">Done — All Rinsed! 🚿</button>`;
+
+      const drag = mountDragTool({
+        className: 'wash-shower',
+        svgFn: showerSVG,
+        size: 64,
+        startLeft: '50%',
+        startTop: '30%',
+        onZone(count, tool) {
+          SKAudio.play('pop');
+          SKPlay.confettiFromEl(tool, { count: 8, power: 5, colors: ['#9ED3FF', '#BFE4FF', '#ffffff'] });
+          shell.stage.querySelector('#washProgress').textContent = `${count} / ${ZONES} rinsed`;
+        }
+      });
+
+      section.querySelector('.wash-rinse-done').addEventListener('click', () => {
+        drag.cleanup();
+        activeCleanup = null;
+        drag.tool.remove();
+        SKAudio.play('pop');
+        section.innerHTML = '';
+        startTowel();
+      });
+    }
+
+    function startTowel() {
+      shell.stage.querySelector('.wash-instructions').textContent = 'Scrub with the towel to make it shine!';
+      shell.stage.querySelector('#washProgress').textContent = `0 / ${ZONES} scrubbed`;
+      shell.setDots(0, ZONES);
+
+      const drag = mountDragTool({
+        className: 'wash-towel',
+        svgFn: towelSVG,
+        size: 60,
+        startLeft: '50%',
+        startTop: '55%',
+        onZone(count, tool) {
+          SKAudio.play('pop');
+          SKPlay.confettiFromEl(tool, { count: 8, power: 5, colors: ['#FFE58A', '#ffffff', '#FFD24C'] });
+          shell.stage.querySelector('#washProgress').textContent = `${count} / ${ZONES} scrubbed`;
+          if (count >= ZONES) {
+            drag.cleanup();
+            activeCleanup = null;
+            drag.tool.remove();
+            setTimeout(finishWashing, 300);
+          }
+        }
+      });
     }
 
     function finishWashing() {
@@ -114,6 +248,7 @@
       SKPlay.confettiFromEl(shell.stage.querySelector('#washStage'), { count: 40, power: 11 });
       shell.cheer();
       shell.stage.querySelector('.wash-instructions').textContent = 'All clean! Now pick a color to paint it!';
+      shell.stage.querySelector('#washProgress').textContent = '';
       renderPaintPicker();
     }
 
@@ -145,7 +280,7 @@
     }
 
     startRound();
-    return { destroy() { SKAudio.stopSpeak(); } };
+    return { destroy() { SKAudio.stopSpeak(); if (activeCleanup) activeCleanup(); } };
   }
 
   registerGame({
@@ -156,7 +291,7 @@
     buddy: 'ziggy',
     color: 'mint',
     icon: '🚗',
-    blurb: 'Scrub away the mud, then paint your car any color!',
+    blurb: 'Scrub away the mud, rinse, dry, and paint your car any color!',
     mount(root, ctx) { return mountWash(root, this, ctx.level); }
   });
 })();

@@ -183,7 +183,7 @@
 /* ---------- Car Wash ---------- */
 .wash-instructions{ text-align:center; font-weight:800; font-family:var(--font-display); color:var(--ink-soft); margin-bottom:14px; }
 .wash-progress{ text-align:center; font-family:var(--font-display); font-weight:800; color:var(--accent-dark,var(--sky-dark)); margin-bottom:14px; font-size:1.1rem; }
-.wash-stage{ position:relative; width:100%; max-width:460px; margin:0 auto; }
+.wash-stage{ position:relative; width:100%; max-width:460px; margin:0 auto; touch-action:none; }
 .wash-stage svg.wash-car{ width:100%; height:auto; display:block; filter:drop-shadow(0 14px 22px rgba(43,33,69,.2)); }
 .dirt-blob{ position:absolute; cursor:pointer; touch-action:manipulation; transition:transform .3s cubic-bezier(.34,1.56,.64,1), opacity .3s ease; user-select:none; }
 .dirt-blob.cleaned{ transform:scale(0) rotate(30deg); opacity:0; pointer-events:none; }
@@ -191,6 +191,9 @@
 .wash-shine.on{ opacity:1; animation:washShine 1s ease; }
 @keyframes washShine{ 0%{ box-shadow:0 0 0 0 rgba(255,255,255,0); } 40%{ box-shadow:0 0 40px 14px rgba(255,255,255,.9); } 100%{ box-shadow:0 0 0 0 rgba(255,255,255,0); } }
 .wash-paint-prompt{ text-align:center; font-family:var(--font-display); font-weight:800; margin:18px 0 12px; }
+.wash-tool{ position:absolute; transform:translate(-50%,-50%); pointer-events:none; user-select:none; z-index:5; filter:drop-shadow(0 8px 12px rgba(43,33,69,.3)); transition:left .06s ease-out, top .06s ease-out; }
+.wash-tool svg{ display:block; }
+#washToolSection{ text-align:center; margin-top:16px; }
 
 /* ---------- Build-a-Cake oven ---------- */
 .oven-overlay{ position:fixed; inset:0; z-index:8300; background:rgba(43,33,69,.55); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .25s; }
