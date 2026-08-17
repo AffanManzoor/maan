@@ -7,14 +7,14 @@
    play). Bump CACHE_NAME on any deploy that must reach devices
    with an already-installed worker sooner rather than later.
    ============================================================ */
-const CACHE_NAME = 'superkids-v10';
+const CACHE_NAME = 'superkids-v11';
 const CORE_ASSETS = [
   './', './index.html', './manifest.json',
-  './css/style.css?v=11', './css/games.css?v=11',
-  './js/core.js?v=11', './js/audio.js?v=11', './js/characters.js?v=11', './js/covers.js?v=11', './js/shell.js?v=11', './js/app.js?v=11',
-  './js/games/math.js?v=11', './js/games/counting.js?v=11', './js/games/sorting.js?v=11', './js/games/jigsaw.js?v=11',
-  './js/games/letters.js?v=11', './js/games/shapes.js?v=11', './js/games/memory.js?v=11', './js/games/patterns.js?v=11', './js/games/exam.js?v=11',
-  './js/games/buildbear.js?v=11', './js/games/buildsnowman.js?v=11', './js/games/carwash.js?v=11', './js/games/buildcake.js?v=11',
+  './css/style.css?v=12', './css/games.css?v=12',
+  './js/core.js?v=12', './js/audio.js?v=12', './js/characters.js?v=12', './js/covers.js?v=12', './js/shell.js?v=12', './js/app.js?v=12',
+  './js/games/math.js?v=12', './js/games/counting.js?v=12', './js/games/sorting.js?v=12', './js/games/jigsaw.js?v=12',
+  './js/games/letters.js?v=12', './js/games/shapes.js?v=12', './js/games/memory.js?v=12', './js/games/patterns.js?v=12', './js/games/exam.js?v=12',
+  './js/games/buildbear.js?v=12', './js/games/buildsnowman.js?v=12', './js/games/carwash.js?v=12', './js/games/buildcake.js?v=12',
   './assets/favicon.svg'
 ];
 

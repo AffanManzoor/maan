@@ -124,17 +124,22 @@
     if (voiceCache) return voiceCache;
     const voices = window.speechSynthesis.getVoices();
     if (!voices || !voices.length) return null;
-    // Prefer clear British English voices — they're the easiest for young kids to
-    // parse across accents. Falls back to any English if a GB voice isn't available.
+    // Prefer soft, warm British English voices — they're the easiest for young
+    // kids to parse across accents, and the enhanced/premium variants sound the
+    // most natural. Falls back to any English if a GB voice isn't available.
     const isGB = (v) => /en-GB/i.test(v.lang);
-    const isFemale = (v) => /female|kate|serena|hazel|susan|karen|tessa|samantha|victoria|libby|sonia/i.test(v.name);
-    const namedGB = (v) => isGB(v) && /kate|serena|hazel|susan|daniel|libby|sonia|google uk english/i.test(v.name);
+    const isPremium = (v) => /enhanced|premium|neural|natural|online|wavenet/i.test(v.name);
+    const isSoftFemale = (v) => /female|kate|serena|sonia|libby|amy|emma|martha|hazel|susan|jenny|aria|nova|abbi|olivia|isla/i.test(v.name);
+    const isNamedGB = (v) => isGB(v) && /kate|serena|sonia|libby|amy|emma|martha|hazel|susan|abbi|olivia|isla|daniel|arthur|ryan|thomas|google uk english/i.test(v.name);
     const preferred =
-      voices.find(namedGB) ||                                          // known clear British voices by name
-      voices.find((v) => isGB(v) && isFemale(v)) ||                    // any British female
-      voices.find(isGB) ||                                             // any British voice
-      voices.find((v) => /en-US/i.test(v.lang) && isFemale(v)) ||     // US female fallback
-      voices.find((v) => /^en/i.test(v.lang)) ||                       // any English at all
+      voices.find((v) => isGB(v) && isSoftFemale(v) && isPremium(v)) ||  // best case: soft British female, premium
+      voices.find((v) => isGB(v) && isSoftFemale(v)) ||                  // soft British female (any quality)
+      voices.find((v) => isNamedGB(v) && isPremium(v)) ||                // known British voice, premium
+      voices.find(isNamedGB) ||                                          // known British voice by name
+      voices.find((v) => isGB(v) && isPremium(v)) ||                     // any premium British voice
+      voices.find(isGB) ||                                               // any British voice
+      voices.find((v) => /en-US/i.test(v.lang) && isSoftFemale(v)) ||   // US female fallback
+      voices.find((v) => /^en/i.test(v.lang)) ||                         // any English at all
       voices[0];
     voiceCache = preferred;
     return preferred;
@@ -152,9 +157,9 @@
       const u = new SpeechSynthesisUtterance(text);
       const v = pickVoice();
       if (v) u.voice = v;
-      u.rate = 0.88;
-      u.pitch = 1.15;
-      u.volume = 1;
+      u.rate = 0.82;
+      u.pitch = 1.25;
+      u.volume = 0.92;
       window.speechSynthesis.speak(u);
     } catch (e) { /* ignore */ }
   }
