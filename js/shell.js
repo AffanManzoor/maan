@@ -52,8 +52,10 @@
     const showcase = document.getElementById('showcase');
     if (showcase && !showcase.dataset.done && SKGames.length) {
       showcase.dataset.done = '1';
+      const NEW_GAMES = new Set(['buildbear', 'buildsnowman', 'carwash', 'buildcake']);
       showcase.innerHTML = SKGames.map((g) => `
         <div class="game-card acc-${g.color}" data-go="#/pick">
+          ${NEW_GAMES.has(g.id) ? '<span class="new-ribbon" aria-label="New game">NEW!</span>' : ''}
           <div class="g-buddy">${SKChar.render(g.buddy, { size: 38, mode: 'face' })}</div>
           <div class="g-icon">${g.icon}</div>
           <div class="g-tag">${g.subjectLabel}</div>
