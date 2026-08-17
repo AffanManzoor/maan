@@ -124,9 +124,17 @@
     if (voiceCache) return voiceCache;
     const voices = window.speechSynthesis.getVoices();
     if (!voices || !voices.length) return null;
-    const preferred = voices.find((v) => /en/i.test(v.lang) && /female|samantha|zira|victoria|karen|tessa/i.test(v.name)) ||
-      voices.find((v) => /en-GB|en-US/i.test(v.lang)) ||
-      voices.find((v) => /^en/i.test(v.lang)) ||
+    // Prefer clear British English voices — they're the easiest for young kids to
+    // parse across accents. Falls back to any English if a GB voice isn't available.
+    const isGB = (v) => /en-GB/i.test(v.lang);
+    const isFemale = (v) => /female|kate|serena|hazel|susan|karen|tessa|samantha|victoria|libby|sonia/i.test(v.name);
+    const namedGB = (v) => isGB(v) && /kate|serena|hazel|susan|daniel|libby|sonia|google uk english/i.test(v.name);
+    const preferred =
+      voices.find(namedGB) ||                                          // known clear British voices by name
+      voices.find((v) => isGB(v) && isFemale(v)) ||                    // any British female
+      voices.find(isGB) ||                                             // any British voice
+      voices.find((v) => /en-US/i.test(v.lang) && isFemale(v)) ||     // US female fallback
+      voices.find((v) => /^en/i.test(v.lang)) ||                       // any English at all
       voices[0];
     voiceCache = preferred;
     return preferred;
@@ -144,7 +152,7 @@
       const u = new SpeechSynthesisUtterance(text);
       const v = pickVoice();
       if (v) u.voice = v;
-      u.rate = 0.92;
+      u.rate = 0.88;
       u.pitch = 1.15;
       u.volume = 1;
       window.speechSynthesis.speak(u);
