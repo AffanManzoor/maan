@@ -205,6 +205,89 @@
 .oven-bar{ height:12px; border-radius:999px; background:var(--line); overflow:hidden; margin-top:18px; }
 .oven-bar > span{ display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--sun),var(--coral)); border-radius:999px; transition:width 1.4s linear; }
 
+/* ---------- Brick Breaker ---------- */
+.bb-instructions{ text-align:center; font-weight:800; font-family:var(--font-display); color:var(--ink-soft); margin-bottom:14px; }
+.bb-wrap{ width:100%; max-width:480px; margin:0 auto; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-pop); background:#EAF5FF; touch-action:none; }
+.bb-wrap canvas{ display:block; width:100%; height:auto; }
+
+/* ---------- Star Catcher ---------- */
+.sc-instructions{ text-align:center; font-weight:800; font-family:var(--font-display); color:var(--ink-soft); margin-bottom:14px; }
+.sc-wrap{ width:100%; max-width:480px; margin:0 auto; border-radius:20px; overflow:hidden; box-shadow:0 14px 30px rgba(43,33,69,.35); background:#0a1030; touch-action:none; }
+.sc-wrap canvas{ display:block; width:100%; height:auto; }
+
+/* ---------- Balloon Pop ---------- */
+.bp-instructions{ text-align:center; font-weight:800; font-family:var(--font-display); color:var(--ink-soft); margin-bottom:14px; }
+.bp-wrap{ position:relative; width:100%; max-width:500px; height:460px; margin:0 auto; border-radius:20px; overflow:hidden; background:linear-gradient(180deg,#BFE4FF 0%, #EAF5FF 100%); box-shadow:var(--shadow-pop); }
+.balloon{ position:absolute; bottom:-90px; width:70px; height:96px; cursor:pointer; animation:balloonRise linear forwards; transform:translateX(0); user-select:none; }
+@keyframes balloonRise{
+  from{ bottom:-100px; transform:translateX(0); }
+  50%{ transform:translateX(var(--sway,20px)); }
+  to{ bottom:110%; transform:translateX(calc(var(--sway,20px) * -.5)); }
+}
+.balloon.pop{ animation:balloonPop .35s ease-out forwards; }
+@keyframes balloonPop{ 0%{ transform:scale(1); opacity:1; } 100%{ transform:scale(1.6); opacity:0; } }
+
+/* ---------- Critter Bop (whack-a-mole) ---------- */
+.wm-instructions{ text-align:center; font-weight:800; font-family:var(--font-display); color:var(--ink-soft); margin-bottom:14px; }
+.wm-grid{ display:grid; gap:16px; width:100%; max-width:400px; margin:0 auto; }
+.wm-hole{ position:relative; aspect-ratio:1; overflow:hidden; cursor:pointer; }
+.wm-hill{ position:absolute; inset:auto 0 0 0; height:38%; background:radial-gradient(ellipse at 50% 100%, #7A5230 60%, #B98D4B 100%); border-radius:50%; }
+.wm-critter{ position:absolute; left:50%; bottom:20%; transform:translate(-50%, 100%); font-size:2.6rem; transition:transform .18s cubic-bezier(.34,1.56,.64,1); }
+.wm-hole.up .wm-critter{ transform:translate(-50%, -10%); }
+.wm-hole.bopped .wm-critter{ transform:translate(-50%, 130%) scale(.6); }
+
+/* ---------- Ice Cream Stacker ---------- */
+.ic-instructions{ text-align:center; font-weight:800; font-family:var(--font-display); color:var(--ink-soft); margin-bottom:14px; }
+.ic-preview{ position:relative; width:100%; max-width:280px; margin:0 auto 16px; }
+.ic-preview svg{ width:100%; height:auto; display:block; filter:drop-shadow(0 12px 20px rgba(43,33,69,.18)); }
+.ic-topper{ position:absolute; transform:translate(-50%,-50%); pointer-events:none; filter:drop-shadow(0 3px 4px rgba(43,33,69,.25)); }
+.ic-undo{ display:block; margin:14px auto 8px; }
+
+/* ---------- Bubble Wrap ---------- */
+.bw-instructions{ text-align:center; font-weight:800; font-family:var(--font-display); color:var(--ink-soft); margin-bottom:14px; }
+.bw-grid{ display:grid; gap:8px; width:100%; margin:0 auto; padding:10px; background:linear-gradient(135deg,#EAF5FF, #FFF); border-radius:14px; box-shadow:var(--shadow-pop); }
+.bw-bubble{ aspect-ratio:1; border:none; border-radius:50%; cursor:pointer; background:radial-gradient(circle at 30% 30%, #fff 0%, var(--bcol) 80%); box-shadow:inset -4px -6px 10px rgba(0,0,0,.08), 0 4px 8px rgba(43,33,69,.1); transition:transform .1s; padding:0; }
+.bw-bubble:hover{ transform:scale(1.04); }
+.bw-bubble.popped{ background:radial-gradient(circle, rgba(255,255,255,.4) 0%, transparent 70%); box-shadow:none; transform:scale(.5); opacity:.3; pointer-events:none; }
+
+/* ---------- Butterfly Catcher ---------- */
+.bf-instructions{ text-align:center; font-weight:800; font-family:var(--font-display); color:var(--ink-soft); margin-bottom:14px; }
+.bf-stage{ position:relative; width:100%; max-width:480px; height:400px; margin:0 auto; border-radius:20px; overflow:hidden; background:linear-gradient(180deg,#E4F2FF 0%, #E4FBF3 55%, #9CF0D4 100%); touch-action:none; cursor:grab; box-shadow:var(--shadow-pop); }
+.bf-stage:active{ cursor:grabbing; }
+.bf-butterfly{ position:absolute; width:60px; height:44px; pointer-events:none; animation:butterflyFlap ease-in-out infinite alternate; filter:drop-shadow(0 4px 6px rgba(43,33,69,.2)); }
+@keyframes butterflyFlap{
+  from{ transform:translate(0,0) scaleX(1); }
+  to{ transform:translate(var(--wobble,30px), calc(var(--wobble,30px) * -.5)) scaleX(.9); }
+}
+.bf-butterfly.caught{ animation:butterflyCaught .35s forwards; }
+@keyframes butterflyCaught{ from{ transform:scale(1); opacity:1; } to{ transform:scale(.4); opacity:0; } }
+.bf-net{ position:absolute; width:80px; height:100px; transform:translate(-50%,-70%); pointer-events:none; z-index:5; transition:left .06s ease-out, top .06s ease-out; }
+
+/* ---------- Piano Pals ---------- */
+.pn-instructions{ text-align:center; font-weight:800; font-family:var(--font-display); color:var(--ink-soft); margin-bottom:10px; }
+.pn-listen{ display:block; margin:0 auto 14px; }
+.pn-piano{ display:flex; gap:6px; width:100%; max-width:520px; margin:0 auto 20px; padding:10px; background:#2B2145; border-radius:14px; box-shadow:var(--shadow-pop); }
+.pn-key{ flex:1; aspect-ratio:1/2.5; border:none; border-radius:6px; background:linear-gradient(180deg,var(--kcol,#fff), color-mix(in srgb, var(--kcol) 80%, #fff 20%)); box-shadow:0 4px 0 rgba(0,0,0,.25); cursor:pointer; padding:6px; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; transition:transform .08s; }
+.pn-key:active, .pn-key.press{ transform:translateY(3px); box-shadow:0 1px 0 rgba(0,0,0,.25); }
+.pn-key.listening{ animation:pnPulse 1.5s ease-in-out infinite; }
+@keyframes pnPulse{ 0%,100%{ filter:brightness(1); } 50%{ filter:brightness(1.15); } }
+.pn-lbl{ font-family:var(--font-display); font-weight:800; font-size:.85rem; color:rgba(0,0,0,.6); text-transform:lowercase; }
+.pn-done{ display:block; margin:0 auto; }
+
+/* ---------- Feed the Monster ---------- */
+.fm-header{ text-align:center; position:relative; }
+.fm-monster{ max-width:180px; margin:0 auto 8px; }
+.fm-monster svg{ width:100%; height:auto; display:block; filter:drop-shadow(0 12px 20px rgba(43,33,69,.2)); }
+.fm-request{ font-family:var(--font-display); font-weight:800; font-size:1.15rem; color:var(--ink); display:inline-block; margin:6px 8px; }
+.fm-speak{ vertical-align:middle; }
+.fm-tray{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; padding:14px; margin:16px auto 0; max-width:460px; background:#fff; border-radius:20px; box-shadow:var(--shadow-pop); border:1px solid var(--line); }
+.fm-food{ font-size:2.6rem; border:none; background:none; padding:10px; border-radius:14px; cursor:pointer; transition:transform .15s cubic-bezier(.34,1.56,.64,1); line-height:1; }
+.fm-food:hover{ transform:scale(1.15) rotate(-4deg); background:var(--cream); }
+.fm-food.shake{ animation:fmShake .35s ease-in-out; }
+@keyframes fmShake{ 0%,100%{ transform:translateX(0); } 25%{ transform:translateX(-6px); } 75%{ transform:translateX(6px); } }
+.fm-food.gone{ animation:fmGone .5s forwards; }
+@keyframes fmGone{ from{ transform:scale(1) translateY(0); opacity:1; } to{ transform:scale(.3) translateY(-40px); opacity:0; } }
+
 /* ---------- responsive ---------- */
 @media (max-width:520px){
   .q-prompt{ font-size:1.15rem; }

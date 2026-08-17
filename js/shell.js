@@ -52,7 +52,7 @@
     const showcase = document.getElementById('showcase');
     if (showcase && !showcase.dataset.done && SKGames.length) {
       showcase.dataset.done = '1';
-      const NEW_GAMES = new Set(['buildbear', 'buildsnowman', 'carwash', 'buildcake']);
+      const NEW_GAMES = new Set(['brickbreaker', 'starcatcher', 'balloonpop', 'whackamole', 'icecream', 'bubblewrap', 'butterfly', 'piano', 'feedmonster']);
       showcase.innerHTML = SKGames.map((g) => {
         const cover = window.SKCovers ? SKCovers.get(g.id) : null;
         const coverHTML = cover
