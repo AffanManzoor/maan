@@ -413,6 +413,16 @@ a{ color:inherit; }
 .btn-sun{ box-shadow:0 6px 0 var(--btn-shadow), 0 0 0 6px rgba(255,201,60,0), var(--shadow-pop); }
 .btn-sun:hover{ box-shadow:0 6px 0 var(--btn-shadow), 0 0 0 8px rgba(255,201,60,.22), var(--shadow-pop); }
 
+/* Illustrated per-game covers — shown on both showcase cards and hub tiles */
+.g-cover, .t-cover{
+  width:100%; height:auto; aspect-ratio:5/3; margin-bottom:10px;
+  border-radius:14px; overflow:hidden; background:var(--accent-tint,#FFF6DC);
+  box-shadow:inset 0 -2px 0 rgba(43,33,69,.06);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.g-cover svg, .t-cover svg{ width:100%; height:100%; display:block; }
+.game-card:hover .g-cover, .tile:hover .t-cover{ transform:scale(1.02) rotate(-.5deg); }
+
 /* NEW! ribbon on the four newest game cards */
 .new-ribbon{
   position:absolute; top:12px; left:-6px; z-index:2;

@@ -53,15 +53,21 @@
     if (showcase && !showcase.dataset.done && SKGames.length) {
       showcase.dataset.done = '1';
       const NEW_GAMES = new Set(['buildbear', 'buildsnowman', 'carwash', 'buildcake']);
-      showcase.innerHTML = SKGames.map((g) => `
+      showcase.innerHTML = SKGames.map((g) => {
+        const cover = window.SKCovers ? SKCovers.get(g.id) : null;
+        const coverHTML = cover
+          ? `<div class="g-cover">${cover}</div>`
+          : `<div class="g-icon">${g.icon}</div>`;
+        return `
         <div class="game-card acc-${g.color}" data-go="#/pick">
           ${NEW_GAMES.has(g.id) ? '<span class="new-ribbon" aria-label="New game">NEW!</span>' : ''}
           <div class="g-buddy">${SKChar.render(g.buddy, { size: 38, mode: 'face' })}</div>
-          <div class="g-icon">${g.icon}</div>
+          ${coverHTML}
           <div class="g-tag">${g.subjectLabel}</div>
           <div class="g-title">${g.title}</div>
           <p class="g-blurb">${g.blurb}</p>
-        </div>`).join('');
+        </div>`;
+      }).join('');
     }
   }
 
@@ -143,9 +149,13 @@
     grid.innerHTML = SKGames.map((g) => {
       const p = s.progress[g.id];
       const starsTxt = p ? `⭐ ${p.starsEarned} stars earned` : 'Not played yet';
+      const cover = window.SKCovers ? SKCovers.get(g.id) : null;
+      const coverHTML = cover
+        ? `<div class="t-cover">${cover}</div>`
+        : `<div class="t-icon">${g.icon}</div>`;
       return `<div class="tile acc-${g.color}" data-go="#/game/${g.id}">
         <div class="t-buddy">${SKChar.render(g.buddy, { size: 40, mode: 'face' })}</div>
-        <div class="t-icon">${g.icon}</div>
+        ${coverHTML}
         <div class="t-title">${g.title}</div>
         <p class="t-blurb">${g.blurb}</p>
         <div class="t-stars">${starsTxt}</div>
