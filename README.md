@@ -1,4 +1,4 @@
-# SuperKids 🦁🦉🦊🤖
+# Bloom Zoo 🦁🦉🦊🤖
 
 A playful learning-games website for little kids (ages 2–8), in the spirit of
 Lingo Kids — built with plain HTML/CSS/JS, no build step, no dependencies,

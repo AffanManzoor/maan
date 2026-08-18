@@ -98,12 +98,15 @@
 
     function render() {
       // build the cone + stacked scoops as inline SVG.
-      // The bigger the stack, the shorter each scoop needs to be so it fits — for
-      // 1-5 scoops each is a full 30 units tall, but from 6+ scoops we squeeze
-      // them so 10 scoops still fit inside the 260-unit viewBox above the cone.
+      // Scoops sit ON the cone rim (touching, not overlapping it) — bottom
+      // scoop's bottom edge lines up with the cone rim at y=210, each next
+      // scoop stacks on top. The bigger the stack, the more scoops overlap
+      // each other vertically (via scoopH shrinking) so all 10 still fit.
       const cx = 100;
-      const scoopH = scoops.length <= 5 ? 30 : Math.max(18, Math.floor(150 / scoops.length));
-      const coneTop = 210 - scoops.length * scoopH;
+      const scoopR = 30;
+      const coneRimY = 210;
+      const scoopH = scoops.length <= 5 ? 30 : Math.max(15, Math.floor(150 / scoops.length));
+      const bottomCenterY = coneRimY - scoopR;   // bottom scoop rests on cone rim
       // proper waffle cone: warm gradient body + a criss-cross waffle pattern
       // (two overlaid line-patterns rotated ±45°) + a soft highlight down the
       // left side + a shadow band down the right for depth.
@@ -127,16 +130,19 @@
         <polygon points="54,210 146,210 100,258" fill="url(#waffleL)"/>
         <path d="M62 216 L96 254" stroke="#FFECC5" stroke-width="3" opacity="0.55" stroke-linecap="round" fill="none"/>
         <path d="M138 216 L104 254" stroke="#000" stroke-width="4" opacity="0.15" stroke-linecap="round" fill="none"/>`;
+      // i=0 is the first-added scoop and sits at the bottom (touching the cone).
+      // Each subsequent scoop stacks on top, going up the SVG (smaller y).
       scoops.forEach((f, i) => {
-        const y = coneTop + i * scoopH + scoopH;
+        const y = bottomCenterY - i * scoopH;
         const fill = f.color.startsWith('linear') ? 'url(#rb)' : f.color;
         const sway = (i % 2 === 0 ? -1 : 1) * 2;
-        svg += `<circle cx="${cx + sway}" cy="${y}" r="30" fill="${fill}" stroke="rgba(0,0,0,.08)" stroke-width="2"/>`;
+        svg += `<circle cx="${cx + sway}" cy="${y}" r="${scoopR}" fill="${fill}" stroke="rgba(0,0,0,.08)" stroke-width="2"/>`;
         svg += `<ellipse cx="${cx - 8 + sway}" cy="${y - 10}" rx="7" ry="4" fill="#fff" opacity=".5"/>`;
       });
       if (scoops.length > 0 && topping) {
-        // sit the topper right on top of the topmost scoop's top edge
-        const topY = coneTop - 6;
+        // sit the topper right on the top edge of the topmost scoop
+        const topmostCenter = bottomCenterY - (scoops.length - 1) * scoopH;
+        const topY = topmostCenter - scoopR - 4;
         svg += `</svg><span class="ic-topper" style="left:50%;top:${(topY / 260 * 100).toFixed(1)}%;font-size:2.6rem;">${topping.icon}</span>`;
       } else {
         svg += `</svg>`;

@@ -226,7 +226,7 @@
 
       <div class="p-block">
         <h3>Privacy &amp; safety</h3>
-        <p>SuperKids has no ads, no accounts and no chat. Progress lives only in this browser's local storage — nothing is uploaded anywhere.</p>
+        <p>Bloom Zoo has no ads, no accounts and no chat. Progress lives only in this browser's local storage — nothing is uploaded anywhere.</p>
         <button class="btn btn-ghost" id="resetBtn">Reset all progress</button>
       </div>`;
 

@@ -1,4 +1,4 @@
-name: Deploy SuperKids to GitHub Pages
+name: Deploy Bloom Zoo to GitHub Pages
 
 on:
   push:
