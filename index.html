@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=17">
-<link rel="stylesheet" href="css/games.css?v=17">
+<link rel="stylesheet" href="css/style.css?v=18">
+<link rel="stylesheet" href="css/games.css?v=18">
 </head>
 <body>
 
@@ -111,11 +111,32 @@
       <p class="sec-sub">See what your child is learning, set the difficulty, and turn sound on or off.</p>
       <div class="center"><button class="btn btn-xl btn-grape" data-go="#/parents">Open the Grown-ups Room</button></div>
 
-      <div class="free-badge">
-        <div class="free-badge-icon">🎉</div>
-        <h3>100% free — for everyone, forever</h3>
-        <p>All 22 games, all 4 characters, star rewards, stickers and offline play. No ads, no accounts, no subscriptions.</p>
-        <button class="btn btn-xl btn-sun" data-go="#/pick">Start playing now</button>
+      <div class="pricing" id="pricing">
+        <div class="plan plan-free">
+          <div class="plan-tag">Free</div>
+          <div class="plan-price"><span class="plan-num">$0</span></div>
+          <ul class="plan-list">
+            <li>✓ 22 fun games (Free)</li>
+            <li>✓ All 4 characters</li>
+            <li>✓ Star rewards + sticker book</li>
+            <li>✓ Plays offline, no ads</li>
+            <li class="plan-limit">🕐 30 minutes of play per day</li>
+          </ul>
+          <button class="btn btn-xl btn-sun" data-go="#/pick">Start playing free</button>
+        </div>
+        <div class="plan plan-plus">
+          <div class="plan-tag">Bloom Zoo <em>Plus</em></div>
+          <div class="plan-price"><span class="plan-num">$7</span><span class="plan-per">/month</span></div>
+          <ul class="plan-list">
+            <li>✓ Everything in Free</li>
+            <li>✓ <b>Unlimited playtime</b></li>
+            <li>✓ 2 exclusive games — Pizza Chef &amp; Rocket Race</li>
+            <li>✓ Priority for new games as they launch</li>
+            <li class="plan-support">💛 Support tiny humans learning</li>
+          </ul>
+          <button class="btn btn-xl btn-grape" data-go="#/premium">✨ Get Bloom Zoo Plus</button>
+          <p class="plan-note">Preview — real payments coming soon. Purchases don't charge you.</p>
+        </div>
       </div>
     </section>
 
@@ -186,33 +207,35 @@
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-<script src="js/core.js?v=17"></script>
-<script src="js/audio.js?v=17"></script>
-<script src="js/characters.js?v=17"></script>
-<script src="js/covers.js?v=17"></script>
-<script src="js/shell.js?v=17"></script>
-<script src="js/games/math.js?v=17"></script>
-<script src="js/games/counting.js?v=17"></script>
-<script src="js/games/sorting.js?v=17"></script>
-<script src="js/games/jigsaw.js?v=17"></script>
-<script src="js/games/letters.js?v=17"></script>
-<script src="js/games/shapes.js?v=17"></script>
-<script src="js/games/memory.js?v=17"></script>
-<script src="js/games/patterns.js?v=17"></script>
-<script src="js/games/exam.js?v=17"></script>
-<script src="js/games/buildbear.js?v=17"></script>
-<script src="js/games/buildsnowman.js?v=17"></script>
-<script src="js/games/carwash.js?v=17"></script>
-<script src="js/games/buildcake.js?v=17"></script>
-<script src="js/games/brickbreaker.js?v=17"></script>
-<script src="js/games/starcatcher.js?v=17"></script>
-<script src="js/games/balloonpop.js?v=17"></script>
-<script src="js/games/whackamole.js?v=17"></script>
-<script src="js/games/icecream.js?v=17"></script>
-<script src="js/games/bubblewrap.js?v=17"></script>
-<script src="js/games/butterfly.js?v=17"></script>
-<script src="js/games/piano.js?v=17"></script>
-<script src="js/games/feedmonster.js?v=17"></script>
-<script src="js/app.js?v=17"></script>
+<script src="js/core.js?v=18"></script>
+<script src="js/audio.js?v=18"></script>
+<script src="js/characters.js?v=18"></script>
+<script src="js/covers.js?v=18"></script>
+<script src="js/shell.js?v=18"></script>
+<script src="js/games/math.js?v=18"></script>
+<script src="js/games/counting.js?v=18"></script>
+<script src="js/games/sorting.js?v=18"></script>
+<script src="js/games/jigsaw.js?v=18"></script>
+<script src="js/games/letters.js?v=18"></script>
+<script src="js/games/shapes.js?v=18"></script>
+<script src="js/games/memory.js?v=18"></script>
+<script src="js/games/patterns.js?v=18"></script>
+<script src="js/games/exam.js?v=18"></script>
+<script src="js/games/buildbear.js?v=18"></script>
+<script src="js/games/buildsnowman.js?v=18"></script>
+<script src="js/games/carwash.js?v=18"></script>
+<script src="js/games/buildcake.js?v=18"></script>
+<script src="js/games/brickbreaker.js?v=18"></script>
+<script src="js/games/starcatcher.js?v=18"></script>
+<script src="js/games/balloonpop.js?v=18"></script>
+<script src="js/games/whackamole.js?v=18"></script>
+<script src="js/games/icecream.js?v=18"></script>
+<script src="js/games/bubblewrap.js?v=18"></script>
+<script src="js/games/butterfly.js?v=18"></script>
+<script src="js/games/piano.js?v=18"></script>
+<script src="js/games/feedmonster.js?v=18"></script>
+<script src="js/games/pizza.js?v=18"></script>
+<script src="js/games/rocketrace.js?v=18"></script>
+<script src="js/app.js?v=18"></script>
 </body>
 </html>

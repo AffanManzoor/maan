@@ -7,16 +7,17 @@
    play). Bump CACHE_NAME on any deploy that must reach devices
    with an already-installed worker sooner rather than later.
    ============================================================ */
-const CACHE_NAME = 'bloomzoo-v1';
+const CACHE_NAME = 'bloomzoo-v2';
 const CORE_ASSETS = [
   './', './index.html', './manifest.json',
-  './css/style.css?v=17', './css/games.css?v=17',
-  './js/core.js?v=17', './js/audio.js?v=17', './js/characters.js?v=17', './js/covers.js?v=17', './js/shell.js?v=17', './js/app.js?v=17',
-  './js/games/math.js?v=17', './js/games/counting.js?v=17', './js/games/sorting.js?v=17', './js/games/jigsaw.js?v=17',
-  './js/games/letters.js?v=17', './js/games/shapes.js?v=17', './js/games/memory.js?v=17', './js/games/patterns.js?v=17', './js/games/exam.js?v=17',
-  './js/games/buildbear.js?v=17', './js/games/buildsnowman.js?v=17', './js/games/carwash.js?v=17', './js/games/buildcake.js?v=17',
-  './js/games/brickbreaker.js?v=17', './js/games/starcatcher.js?v=17', './js/games/balloonpop.js?v=17', './js/games/whackamole.js?v=17',
-  './js/games/icecream.js?v=17', './js/games/bubblewrap.js?v=17', './js/games/butterfly.js?v=17', './js/games/piano.js?v=17', './js/games/feedmonster.js?v=17',
+  './css/style.css?v=18', './css/games.css?v=18',
+  './js/core.js?v=18', './js/audio.js?v=18', './js/characters.js?v=18', './js/covers.js?v=18', './js/shell.js?v=18', './js/app.js?v=18',
+  './js/games/math.js?v=18', './js/games/counting.js?v=18', './js/games/sorting.js?v=18', './js/games/jigsaw.js?v=18',
+  './js/games/letters.js?v=18', './js/games/shapes.js?v=18', './js/games/memory.js?v=18', './js/games/patterns.js?v=18', './js/games/exam.js?v=18',
+  './js/games/buildbear.js?v=18', './js/games/buildsnowman.js?v=18', './js/games/carwash.js?v=18', './js/games/buildcake.js?v=18',
+  './js/games/brickbreaker.js?v=18', './js/games/starcatcher.js?v=18', './js/games/balloonpop.js?v=18', './js/games/whackamole.js?v=18',
+  './js/games/icecream.js?v=18', './js/games/bubblewrap.js?v=18', './js/games/butterfly.js?v=18', './js/games/piano.js?v=18', './js/games/feedmonster.js?v=18',
+  './js/games/pizza.js?v=18', './js/games/rocketrace.js?v=18',
   './assets/favicon.svg'
 ];
 

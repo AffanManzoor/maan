@@ -44,8 +44,51 @@
       subjectPlays: { math: 0, letters: 0, puzzle: 0, shapes: 0 },
       exams: [],              // { at, score, total }
       settings: { sound: true, voice: true },
+      // "Bloom Zoo Plus" preview — a locally-flagged premium tier. Unlocks
+      // the premium-only games and removes the free-tier daily play limit.
+      // This is a MOCKUP: no real payment or server verification is involved.
+      // See index.html / shell.js for the "Get Bloom Zoo Plus" flow.
+      premium: false,
+      // daily play-time tracking (free tier is capped at FREE_DAILY_LIMIT_MS)
+      playToday: { date: '', ms: 0 },
       createdAt: Date.now()
     };
+  }
+
+  // Free-tier daily play cap: 30 minutes of active game time per day.
+  // Premium removes it. Kept as a state helper so games can check + tick it.
+  const FREE_DAILY_LIMIT_MS = 30 * 60 * 1000;
+  function todayStamp() {
+    const d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function ensurePlayToday(state) {
+    const today = todayStamp();
+    if (!state.playToday || state.playToday.date !== today) {
+      state.playToday = { date: today, ms: 0 };
+    }
+    return state.playToday;
+  }
+  function addPlayMs(ms) {
+    const st = _state;
+    ensurePlayToday(st);
+    st.playToday.ms += ms;
+    saveState();
+  }
+  function msPlayedToday() {
+    const st = _state;
+    return ensurePlayToday(st).ms;
+  }
+  function msPlayRemaining() {
+    if (_state.premium) return Infinity;
+    return Math.max(0, FREE_DAILY_LIMIT_MS - msPlayedToday());
+  }
+  function dailyLimitReached() {
+    return !_state.premium && msPlayedToday() >= FREE_DAILY_LIMIT_MS;
+  }
+  function setPremium(on) {
+    _state.premium = !!on;
+    saveState();
   }
 
   function loadState() {
@@ -295,7 +338,9 @@
     getState, saveState, onStateChange, resetProgress,
     STICKERS, checkStickers, recordRound, recordExam,
     burst, fireworkRain, resizeCanvas, toast,
-    SHAPES, COLORS, SIDES, shapeSVG, polyPoints
+    SHAPES, COLORS, SIDES, shapeSVG, polyPoints,
+    // Bloom Zoo Plus preview helpers
+    FREE_DAILY_LIMIT_MS, addPlayMs, msPlayedToday, msPlayRemaining, dailyLimitReached, setPremium
   };
 
   document.addEventListener('DOMContentLoaded', resizeCanvas);

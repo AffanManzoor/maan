@@ -309,6 +309,42 @@
       </g>
     </svg>`,
 
+    pizza: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Pizza Chef cover">
+      <rect width="200" height="120" fill="#FFEAEC"/>
+      <circle cx="100" cy="62" r="52" fill="#F0B76A" stroke="#8B5E34" stroke-width="2"/>
+      <circle cx="100" cy="62" r="46" fill="#E84D5E"/>
+      <circle cx="100" cy="62" r="42" fill="#FFEDB4" opacity="0.85"/>
+      <circle cx="82" cy="46" r="6" fill="#B93540"/>
+      <circle cx="118" cy="52" r="6" fill="#B93540"/>
+      <circle cx="94" cy="72" r="6" fill="#B93540"/>
+      <circle cx="120" cy="80" r="5" fill="#B93540"/>
+      <circle cx="78" cy="80" r="5" fill="#B93540"/>
+      <circle cx="106" cy="46" r="4" fill="none" stroke="#2B2145" stroke-width="2.5"/>
+      <circle cx="76" cy="60" r="4" fill="none" stroke="#2B2145" stroke-width="2.5"/>
+      <ellipse cx="132" cy="66" rx="6" ry="3" fill="#2FAB70" transform="rotate(20 132 66)"/>
+      <ellipse cx="88" cy="90" rx="5" ry="2.5" fill="#2FAB70" transform="rotate(-15 88 90)"/>
+    </svg>`,
+
+    rocketrace: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Rocket Race cover">
+      <defs><linearGradient id="skyRR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4EA8FF"/><stop offset="1" stop-color="#BFE4FF"/></linearGradient></defs>
+      <rect width="200" height="120" fill="url(#skyRR)"/>
+      <ellipse cx="34" cy="24" rx="14" ry="8" fill="#fff" opacity=".9"/>
+      <ellipse cx="46" cy="26" rx="10" ry="6" fill="#fff" opacity=".9"/>
+      <ellipse cx="168" cy="88" rx="16" ry="9" fill="#fff" opacity=".9"/>
+      <line x1="0" y1="42" x2="70" y2="42" stroke="#FF6F7D" stroke-width="6" stroke-linecap="round"/>
+      <line x1="130" y1="42" x2="200" y2="42" stroke="#FF6F7D" stroke-width="6" stroke-linecap="round"/>
+      <line x1="0" y1="74" x2="60" y2="74" stroke="#3DDC97" stroke-width="6" stroke-linecap="round"/>
+      <line x1="140" y1="74" x2="200" y2="74" stroke="#3DDC97" stroke-width="6" stroke-linecap="round"/>
+      <g transform="translate(100 66)">
+        <path d="M-10 -20 Q0 -34 10 -20 L10 12 L-10 12 Z" fill="#fff" stroke="#B7C4D6" stroke-width="1.5"/>
+        <circle cx="0" cy="-8" r="6" fill="#4EA8FF"/>
+        <circle cx="-2" cy="-10" r="2" fill="#BFE4FF"/>
+        <polygon points="-10,12 -16,20 -10,4" fill="#FF6F7D"/>
+        <polygon points="10,12 16,20 10,4" fill="#FF6F7D"/>
+        <polygon points="-4,12 4,12 0,26" fill="#FFC93C"/>
+      </g>
+    </svg>`,
+
     feedmonster: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Feed the Monster cover">
       <rect width="200" height="120" fill="#FFEAEC"/>
       <path d="M60 40 Q60 12 100 12 Q140 12 140 40 L140 96 Q100 116 60 96 Z" fill="#9B6BFF"/>

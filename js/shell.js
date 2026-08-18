@@ -59,8 +59,8 @@
           ? `<div class="g-cover">${cover}</div>`
           : `<div class="g-icon">${g.icon}</div>`;
         return `
-        <div class="game-card acc-${g.color}" data-go="#/pick">
-          ${NEW_GAMES.has(g.id) ? '<span class="new-ribbon" aria-label="New game">NEW!</span>' : ''}
+        <div class="game-card acc-${g.color}${g.premium ? ' is-premium' : ''}" data-go="#/pick">
+          ${g.premium ? '<span class="plus-ribbon" aria-label="Bloom Zoo Plus game">PLUS</span>' : (NEW_GAMES.has(g.id) ? '<span class="new-ribbon" aria-label="New game">NEW!</span>' : '')}
           <div class="g-buddy">${SKChar.render(g.buddy, { size: 38, mode: 'face' })}</div>
           ${coverHTML}
           <div class="g-tag">${g.subjectLabel}</div>
@@ -153,7 +153,11 @@
       const coverHTML = cover
         ? `<div class="t-cover">${cover}</div>`
         : `<div class="t-icon">${g.icon}</div>`;
-      return `<div class="tile acc-${g.color}" data-go="#/game/${g.id}">
+      // Premium-gated tiles go through #/premium (upgrade prompt) when the
+      // user isn't Plus yet; when they are Plus, they route to the game.
+      const target = (g.premium && !s.premium) ? '#/premium' : ('#/game/' + g.id);
+      return `<div class="tile acc-${g.color}${g.premium ? ' is-premium' : ''}" data-go="${target}">
+        ${g.premium ? '<span class="plus-ribbon" aria-label="Bloom Zoo Plus game">PLUS</span>' : ''}
         <div class="t-buddy">${SKChar.render(g.buddy, { size: 40, mode: 'face' })}</div>
         ${coverHTML}
         <div class="t-title">${g.title}</div>
@@ -165,6 +169,17 @@
 
   /* ================= GAME MOUNT ================= */
   let currentGameDestroy = null;
+  let playTicker = null;
+  function startPlayTicker() {
+    if (playTicker) return;
+    // increment daily play-time every 20 seconds — coarse-grained so we don't
+    // spam localStorage or hammer save listeners
+    const TICK_MS = 20000;
+    playTicker = setInterval(() => SK.addPlayMs(TICK_MS), TICK_MS);
+  }
+  function stopPlayTicker() {
+    if (playTicker) { clearInterval(playTicker); playTicker = null; }
+  }
   function mountGame(id) {
     const gameDef = SKGames.find((g) => g.id === id);
     const root = document.getElementById('gameRoot');
@@ -172,11 +187,81 @@
       root.innerHTML = '<div style="padding:80px 20px;text-align:center;"><h2>Hmm, that game wandered off.</h2><button class="btn btn-sun btn-xl" data-go="#/map">Back to Map</button></div>';
       return;
     }
-    root.innerHTML = '';
     const s = SK.getState();
+    // premium-gate: send non-plus users to the upsell instead of the game
+    if (gameDef.premium && !s.premium) {
+      renderPremiumUpsell(gameDef);
+      return;
+    }
+    // free-tier daily limit gate
+    if (!s.premium && SK.dailyLimitReached()) {
+      renderDailyLimit();
+      return;
+    }
+    root.innerHTML = '';
     const level = s.level || 1;
     const handle = gameDef.mount(root, { level, buddyId: s.buddy || gameDef.buddy });
-    currentGameDestroy = handle && handle.destroy;
+    currentGameDestroy = () => {
+      stopPlayTicker();
+      try { if (handle && handle.destroy) handle.destroy(); } catch (e) { /* ignore */ }
+    };
+    startPlayTicker();
+  }
+
+  function renderDailyLimit() {
+    const root = document.getElementById('gameRoot');
+    const s = SK.getState();
+    const buddyId = s.buddy || 'ziggy';
+    root.innerHTML = `<div class="limit-screen">
+      <div class="limit-card">
+        <div class="limit-buddy">${SKChar.render(buddyId, { size: 148, pose: 'cheer' })}</div>
+        <h2>Great job today, ${s.name || 'friend'}! 💛</h2>
+        <p>You've played your 30 minutes for today. Come back tomorrow for more fun!</p>
+        <div class="limit-cta">
+          <button class="btn btn-xl btn-grape" data-go="#/premium">✨ Get Bloom Zoo Plus for unlimited play</button>
+          <button class="btn btn-xl btn-ghost" data-go="#/map">Back to the Map</button>
+        </div>
+        <p class="limit-note">A grown-up can turn off the daily limit with Bloom Zoo Plus.</p>
+      </div>
+    </div>`;
+  }
+
+  function renderPremiumUpsell(gameDef) {
+    const root = document.getElementById('gameRoot');
+    const s = SK.getState();
+    const feature = gameDef ? `Play <b>${gameDef.title}</b> and every other Bloom Zoo game — with unlimited play time.` :
+      `Unlimited play, plus exclusive games — Pizza Chef and Rocket Race!`;
+    root.innerHTML = `<div class="premium-screen">
+      <div class="premium-card">
+        <div class="premium-crown">✨</div>
+        <h2>Bloom Zoo <em>Plus</em></h2>
+        <p>${feature}</p>
+        <ul class="premium-list">
+          <li>🎮 2 exclusive games: Pizza Chef &amp; Rocket Race</li>
+          <li>♾️ Unlimited daily play</li>
+          <li>🚀 Priority for new games as they launch</li>
+        </ul>
+        <div class="premium-price">$7 <span>/ month</span></div>
+        <div class="premium-cta">
+          <button class="btn btn-xl btn-grape" id="premiumBuy">Unlock Bloom Zoo Plus</button>
+          <button class="btn btn-xl btn-ghost" data-go="#/map">Maybe later</button>
+        </div>
+        <p class="premium-note">Preview — real payments are coming soon. This button just unlocks the preview locally so you can try Plus.</p>
+      </div>
+    </div>`;
+    root.querySelector('#premiumBuy').addEventListener('click', () => {
+      SK.setPremium(true);
+      SKAudio.play('star');
+      SK.toast('✨ Bloom Zoo Plus unlocked!');
+      // Re-render the map / target game. When we were sent here from a
+      // premium game the hash may already equal the target, so setting
+      // location.hash is a no-op — call router() to force re-render.
+      setTimeout(() => {
+        const target = gameDef ? '#/game/' + gameDef.id : '#/map';
+        if (location.hash === target) router();
+        else location.hash = target;
+      }, 700);
+    });
   }
 
   /* ================= STICKER BOOK ================= */
@@ -273,6 +358,7 @@
     else if (parts[0] === 'game' && parts[1]) { showScreen('screen-game'); mountGame(parts[1]); }
     else if (parts[0] === 'stickers') { showScreen('screen-stickers'); renderStickerBook(); }
     else if (parts[0] === 'parents') { showScreen('screen-parents'); renderParents(); }
+    else if (parts[0] === 'premium') { showScreen('screen-game'); renderPremiumUpsell(); }
     else { showScreen('screen-home'); renderHome(); }
   }
   window.addEventListener('hashchange', router);
