@@ -7,7 +7,7 @@
    play). Bump CACHE_NAME on any deploy that must reach devices
    with an already-installed worker sooner rather than later.
    ============================================================ */
-const CACHE_NAME = 'bloomzoo-v2';
+const CACHE_NAME = 'bloomzoo-v3';
 const CORE_ASSETS = [
   './', './index.html', './manifest.json',
   './css/style.css?v=18', './css/games.css?v=18',
