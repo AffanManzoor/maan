@@ -7,16 +7,16 @@
    play). Bump CACHE_NAME on any deploy that must reach devices
    with an already-installed worker sooner rather than later.
    ============================================================ */
-const CACHE_NAME = 'superkids-v13';
+const CACHE_NAME = 'superkids-v14';
 const CORE_ASSETS = [
   './', './index.html', './manifest.json',
-  './css/style.css?v=14', './css/games.css?v=14',
-  './js/core.js?v=14', './js/audio.js?v=14', './js/characters.js?v=14', './js/covers.js?v=14', './js/shell.js?v=14', './js/app.js?v=14',
-  './js/games/math.js?v=14', './js/games/counting.js?v=14', './js/games/sorting.js?v=14', './js/games/jigsaw.js?v=14',
-  './js/games/letters.js?v=14', './js/games/shapes.js?v=14', './js/games/memory.js?v=14', './js/games/patterns.js?v=14', './js/games/exam.js?v=14',
-  './js/games/buildbear.js?v=14', './js/games/buildsnowman.js?v=14', './js/games/carwash.js?v=14', './js/games/buildcake.js?v=14',
-  './js/games/brickbreaker.js?v=14', './js/games/starcatcher.js?v=14', './js/games/balloonpop.js?v=14', './js/games/whackamole.js?v=14',
-  './js/games/icecream.js?v=14', './js/games/bubblewrap.js?v=14', './js/games/butterfly.js?v=14', './js/games/piano.js?v=14', './js/games/feedmonster.js?v=14',
+  './css/style.css?v=15', './css/games.css?v=15',
+  './js/core.js?v=15', './js/audio.js?v=15', './js/characters.js?v=15', './js/covers.js?v=15', './js/shell.js?v=15', './js/app.js?v=15',
+  './js/games/math.js?v=15', './js/games/counting.js?v=15', './js/games/sorting.js?v=15', './js/games/jigsaw.js?v=15',
+  './js/games/letters.js?v=15', './js/games/shapes.js?v=15', './js/games/memory.js?v=15', './js/games/patterns.js?v=15', './js/games/exam.js?v=15',
+  './js/games/buildbear.js?v=15', './js/games/buildsnowman.js?v=15', './js/games/carwash.js?v=15', './js/games/buildcake.js?v=15',
+  './js/games/brickbreaker.js?v=15', './js/games/starcatcher.js?v=15', './js/games/balloonpop.js?v=15', './js/games/whackamole.js?v=15',
+  './js/games/icecream.js?v=15', './js/games/bubblewrap.js?v=15', './js/games/butterfly.js?v=15', './js/games/piano.js?v=15', './js/games/feedmonster.js?v=15',
   './assets/favicon.svg'
 ];
 

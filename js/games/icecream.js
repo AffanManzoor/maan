@@ -104,13 +104,29 @@
       const cx = 100;
       const scoopH = scoops.length <= 5 ? 30 : Math.max(18, Math.floor(150 / scoops.length));
       const coneTop = 210 - scoops.length * scoopH;
+      // proper waffle cone: warm gradient body + a criss-cross waffle pattern
+      // (two overlaid line-patterns rotated ±45°) + a soft highlight down the
+      // left side + a shadow band down the right for depth.
       let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-label="Your ice cream">
         <defs>
-          <linearGradient id="cn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4C989"/><stop offset="1" stop-color="#B98D4B"/></linearGradient>
+          <linearGradient id="cn" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#F5C88C"/>
+            <stop offset=".55" stop-color="#C99054"/>
+            <stop offset="1" stop-color="#7A4E24"/>
+          </linearGradient>
           <linearGradient id="rb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6F7D"/><stop offset=".33" stop-color="#FFC93C"/><stop offset=".66" stop-color="#3DDC97"/><stop offset="1" stop-color="#4EA8FF"/></linearGradient>
+          <pattern id="waffleR" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="#5C3A1A" stroke-width="1.1" opacity="0.55"/>
+          </pattern>
+          <pattern id="waffleL" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="#5C3A1A" stroke-width="1.1" opacity="0.55"/>
+          </pattern>
         </defs>
-        <polygon points="60,210 140,210 100,255" fill="url(#cn)" stroke="#8B5E34" stroke-width="2"/>
-        <g stroke="#8B5E34" stroke-width="1" opacity=".35"><line x1="70" y1="215" x2="100" y2="255"/><line x1="130" y1="215" x2="100" y2="255"/><line x1="85" y1="215" x2="115" y2="255"/><line x1="115" y1="215" x2="85" y2="255"/></g>`;
+        <polygon points="54,210 146,210 100,258" fill="url(#cn)" stroke="#5C3A1A" stroke-width="1.5" stroke-linejoin="round"/>
+        <polygon points="54,210 146,210 100,258" fill="url(#waffleR)"/>
+        <polygon points="54,210 146,210 100,258" fill="url(#waffleL)"/>
+        <path d="M62 216 L96 254" stroke="#FFECC5" stroke-width="3" opacity="0.55" stroke-linecap="round" fill="none"/>
+        <path d="M138 216 L104 254" stroke="#000" stroke-width="4" opacity="0.15" stroke-linecap="round" fill="none"/>`;
       scoops.forEach((f, i) => {
         const y = coneTop + i * scoopH + scoopH;
         const fill = f.color.startsWith('linear') ? 'url(#rb)' : f.color;
