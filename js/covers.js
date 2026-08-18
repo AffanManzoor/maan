@@ -357,6 +357,96 @@
       <path d="M32 60 Q32 54 36 54" stroke="#7A5230" stroke-width="2" fill="none"/>
       <circle cx="170" cy="80" r="12" fill="#3DDC97"/>
       <ellipse cx="168" cy="76" rx="4" ry="2.5" fill="#fff" opacity=".5"/>
+    </svg>`,
+
+    sushi: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Sushi Chef cover">
+      <rect width="200" height="120" fill="#FFF6DC"/>
+      <rect x="8" y="88" width="184" height="20" rx="3" fill="#DFC58A" stroke="#8B5E34"/>
+      <g stroke="#B49459" stroke-width="1">
+        <line x1="20" y1="88" x2="20" y2="108"/><line x1="40" y1="88" x2="40" y2="108"/>
+        <line x1="60" y1="88" x2="60" y2="108"/><line x1="80" y1="88" x2="80" y2="108"/>
+        <line x1="100" y1="88" x2="100" y2="108"/><line x1="120" y1="88" x2="120" y2="108"/>
+        <line x1="140" y1="88" x2="140" y2="108"/><line x1="160" y1="88" x2="160" y2="108"/>
+        <line x1="180" y1="88" x2="180" y2="108"/>
+      </g>
+      <g><circle cx="50" cy="66" r="26" fill="#2A2438"/><circle cx="50" cy="66" r="20" fill="#fff"/>
+         <ellipse cx="50" cy="60" rx="14" ry="3" fill="#FF8560"/>
+         <ellipse cx="50" cy="66" rx="14" ry="3" fill="#B8DE7A"/>
+         <ellipse cx="50" cy="72" rx="14" ry="3" fill="#3DDC97"/>
+         <circle cx="42" cy="46" r="1.2" fill="#3A2400"/><circle cx="50" cy="44" r="1.2" fill="#3A2400"/><circle cx="58" cy="46" r="1.2" fill="#3A2400"/></g>
+      <g><circle cx="110" cy="66" r="26" fill="#F4C1D0"/><circle cx="110" cy="66" r="20" fill="#fff"/>
+         <ellipse cx="110" cy="66" rx="14" ry="6" fill="#D9425A"/>
+         <circle cx="110" cy="66" r="4" fill="#FF8560"/></g>
+      <g><circle cx="170" cy="66" r="26" fill="#F5E6B8"/><circle cx="170" cy="66" r="20" fill="#fff"/>
+         <ellipse cx="170" cy="64" rx="14" ry="3" fill="#FFB08A"/>
+         <ellipse cx="170" cy="70" rx="14" ry="3" fill="#FFC93C"/></g>
+    </svg>`,
+
+    robot: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Robot Builder cover">
+      <rect width="200" height="120" fill="#E4FBF3"/>
+      <g stroke="rgba(47,216,160,.3)" stroke-width="1"><line x1="0" y1="30" x2="200" y2="30"/><line x1="0" y1="60" x2="200" y2="60"/><line x1="0" y1="90" x2="200" y2="90"/></g>
+      <ellipse cx="100" cy="108" rx="60" ry="6" fill="rgba(0,0,0,.15)"/>
+      <rect x="94" y="34" width="12" height="10" fill="#B7C4D6"/>
+      <rect x="66" y="44" width="68" height="60" rx="8" fill="#2FD8A0" stroke="#2A2438" stroke-width="1.5"/>
+      <rect x="76" y="52" width="48" height="20" rx="3" fill="rgba(0,0,0,.2)"/>
+      <circle cx="82" cy="86" r="3" fill="#FFC93C"/><circle cx="100" cy="86" r="3" fill="#FF6F7D"/><circle cx="118" cy="86" r="3" fill="#4EA8FF"/>
+      <rect x="78" y="104" width="14" height="8" fill="#B7C4D6"/><rect x="108" y="104" width="14" height="8" fill="#B7C4D6"/>
+      <line x1="66" y1="66" x2="46" y2="72" stroke="#B7C4D6" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="44" cy="74" r="5" fill="#2FD8A0" stroke="#2A2438" stroke-width="1"/>
+      <line x1="134" y1="66" x2="154" y2="72" stroke="#B7C4D6" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="156" cy="74" r="5" fill="#2FD8A0" stroke="#2A2438" stroke-width="1"/>
+      <rect x="72" y="10" width="56" height="30" rx="6" fill="#2FD8A0" stroke="#2A2438" stroke-width="1.5"/>
+      <circle cx="88" cy="26" r="3.5" fill="#2A2438"/><circle cx="112" cy="26" r="3.5" fill="#2A2438"/>
+      <rect x="88" y="34" width="24" height="3" rx="1" fill="#2A2438"/>
+      <line x1="100" y1="10" x2="100" y2="0" stroke="#B7C4D6" stroke-width="2"/><circle cx="100" cy="0" r="3" fill="#FFC93C" stroke="#F0A100" stroke-width="1"/>
+    </svg>`,
+
+    spaceexplorer: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Space Explorer cover">
+      <defs><linearGradient id="skyGSE" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1444"/><stop offset="1" stop-color="#5B3A9E"/></linearGradient></defs>
+      <rect width="200" height="120" fill="url(#skyGSE)"/>
+      <g fill="#fff">
+        <circle cx="20" cy="24" r="1"/><circle cx="42" cy="14" r="0.8"/><circle cx="66" cy="30" r="1.2"/>
+        <circle cx="94" cy="12" r="0.9"/><circle cx="140" cy="22" r="1"/><circle cx="170" cy="10" r="1.3"/>
+        <circle cx="186" cy="32" r="1"/><circle cx="14" cy="90" r="1.1"/><circle cx="188" cy="98" r="1"/>
+        <circle cx="30" cy="106" r="0.9"/><circle cx="80" cy="102" r="1.1"/>
+      </g>
+      <g transform="translate(146 66)">
+        <ellipse cx="0" cy="0" rx="30" ry="10" fill="none" stroke="#FFC93C" stroke-width="2"/>
+        <circle cx="0" cy="0" r="18" fill="#FFC93C" stroke="#F0A100" stroke-width="1.5"/>
+        <ellipse cx="0" cy="0" rx="30" ry="10" fill="none" stroke="#FFC93C" stroke-width="2" stroke-dasharray="6 8" opacity="0.5"/>
+      </g>
+      <circle cx="60" cy="30" r="10" fill="#4EA8FF" stroke="#2A7EE0" stroke-width="1"/>
+      <circle cx="30" cy="78" r="8" fill="#FF6F7D" stroke="#B93540" stroke-width="1"/>
+      <g transform="translate(90 78)">
+        <circle cx="0" cy="0" r="18" fill="#fff" stroke="#B7C4D6" stroke-width="1.5"/>
+        <ellipse cx="0" cy="-1" rx="12" ry="9" fill="#2A2438"/>
+        <ellipse cx="-4" cy="-3" rx="3" ry="1.6" fill="rgba(255,255,255,.5)"/>
+        <line x1="0" y1="-18" x2="0" y2="-24" stroke="#B7C4D6" stroke-width="1.5"/>
+        <circle cx="0" cy="-25" r="1.8" fill="#FF6F7D"/>
+      </g>
+    </svg>`,
+
+    treasure: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Treasure Dig cover">
+      <rect width="200" height="120" fill="#FFF6DC"/>
+      <path d="M0 40 L200 40 L200 120 L0 120 Z" fill="#E6C68A"/>
+      <path d="M0 40 Q40 30 90 42 T200 40 L200 60 L0 60 Z" fill="#C39858"/>
+      <g fill="rgba(60,40,20,.2)">
+        <circle cx="20" cy="70" r="1.5"/><circle cx="52" cy="86" r="1.2"/><circle cx="90" cy="70" r="1.8"/>
+        <circle cx="130" cy="90" r="1.4"/><circle cx="170" cy="72" r="1.3"/><circle cx="184" cy="98" r="1.6"/>
+      </g>
+      <g transform="translate(100 78)">
+        <polygon points="0,-24 22,-4 0,28 -22,-4" fill="#FF6F7D" stroke="#B93540" stroke-width="2" stroke-linejoin="round"/>
+        <polygon points="0,-24 12,-8 -12,-8" fill="rgba(255,255,255,.4)"/>
+        <line x1="-22" y1="-4" x2="22" y2="-4" stroke="#B93540" stroke-width="1"/>
+      </g>
+      <g transform="translate(46 62) rotate(-14)">
+        <rect x="-3" y="-16" width="6" height="30" fill="#8B5E34"/>
+        <ellipse cx="0" cy="-20" rx="10" ry="6" fill="#B7C4D6" stroke="#2A2438" stroke-width="1"/>
+      </g>
+      <g fill="#FFC93C" stroke="#F0A100" stroke-width="1">
+        <polygon points="170,24 172,30 178,30 173,34 175,40 170,36 165,40 167,34 162,30 168,30"/>
+        <polygon points="30,20 31,24 35,24 32,26 33,30 30,28 27,30 28,26 25,24 29,24"/>
+      </g>
     </svg>`
   };
 

@@ -7,17 +7,18 @@
    play). Bump CACHE_NAME on any deploy that must reach devices
    with an already-installed worker sooner rather than later.
    ============================================================ */
-const CACHE_NAME = 'bloomzoo-v3';
+const CACHE_NAME = 'bloomzoo-v4';
 const CORE_ASSETS = [
   './', './index.html', './manifest.json',
-  './css/style.css?v=18', './css/games.css?v=18',
-  './js/core.js?v=18', './js/audio.js?v=18', './js/characters.js?v=18', './js/covers.js?v=18', './js/shell.js?v=18', './js/app.js?v=18',
-  './js/games/math.js?v=18', './js/games/counting.js?v=18', './js/games/sorting.js?v=18', './js/games/jigsaw.js?v=18',
-  './js/games/letters.js?v=18', './js/games/shapes.js?v=18', './js/games/memory.js?v=18', './js/games/patterns.js?v=18', './js/games/exam.js?v=18',
-  './js/games/buildbear.js?v=18', './js/games/buildsnowman.js?v=18', './js/games/carwash.js?v=18', './js/games/buildcake.js?v=18',
-  './js/games/brickbreaker.js?v=18', './js/games/starcatcher.js?v=18', './js/games/balloonpop.js?v=18', './js/games/whackamole.js?v=18',
-  './js/games/icecream.js?v=18', './js/games/bubblewrap.js?v=18', './js/games/butterfly.js?v=18', './js/games/piano.js?v=18', './js/games/feedmonster.js?v=18',
-  './js/games/pizza.js?v=18', './js/games/rocketrace.js?v=18',
+  './css/style.css?v=19', './css/games.css?v=19',
+  './js/core.js?v=19', './js/audio.js?v=19', './js/characters.js?v=19', './js/covers.js?v=19', './js/shell.js?v=19', './js/app.js?v=19',
+  './js/games/math.js?v=19', './js/games/counting.js?v=19', './js/games/sorting.js?v=19', './js/games/jigsaw.js?v=19',
+  './js/games/letters.js?v=19', './js/games/shapes.js?v=19', './js/games/memory.js?v=19', './js/games/patterns.js?v=19', './js/games/exam.js?v=19',
+  './js/games/buildbear.js?v=19', './js/games/buildsnowman.js?v=19', './js/games/carwash.js?v=19', './js/games/buildcake.js?v=19',
+  './js/games/brickbreaker.js?v=19', './js/games/starcatcher.js?v=19', './js/games/balloonpop.js?v=19', './js/games/whackamole.js?v=19',
+  './js/games/icecream.js?v=19', './js/games/bubblewrap.js?v=19', './js/games/butterfly.js?v=19', './js/games/piano.js?v=19', './js/games/feedmonster.js?v=19',
+  './js/games/pizza.js?v=19', './js/games/rocketrace.js?v=19',
+  './js/games/sushi.js?v=19', './js/games/robot.js?v=19', './js/games/spaceexplorer.js?v=19', './js/games/treasure.js?v=19',
   './assets/favicon.svg'
 ];
 

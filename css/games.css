@@ -288,6 +288,23 @@
 .fm-food.gone{ animation:fmGone .5s forwards; }
 @keyframes fmGone{ from{ transform:scale(1) translateY(0); opacity:1; } to{ transform:scale(.3) translateY(-40px); opacity:0; } }
 
+/* ---------- Plus games: shared preview containers ---------- */
+.pz-instructions, .rr-instructions{ text-align:center; font-weight:800; font-family:var(--font-display); color:var(--ink-soft); margin-bottom:14px; padding:0 10px; }
+.pz-preview, .robot-preview{ width:100%; max-width:280px; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; }
+.pz-preview svg, .robot-preview svg, .sushi-tray svg{ width:100%; height:auto; display:block; filter:drop-shadow(0 12px 20px rgba(43,33,69,.18)); }
+.robot-preview{ max-width:220px; }
+.sushi-tray{ width:100%; max-width:520px; margin:0 auto 16px; }
+.rr-wrap, .se-wrap{ width:100%; max-width:480px; margin:0 auto; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-pop); background:#EAF5FF; touch-action:none; }
+.rr-wrap canvas, .se-wrap canvas{ display:block; width:100%; height:auto; }
+.se-wrap{ background:#0E1444; box-shadow:0 14px 30px rgba(43,33,69,.35); }
+
+/* ---------- Treasure Dig ---------- */
+.td-scene{ position:relative; width:100%; max-width:420px; margin:0 auto 14px; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-pop); background:#FFF6DC; touch-action:none; aspect-ratio:400/320; }
+.td-scene .td-gem, .td-scene .td-sand{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+.td-scene .td-sand{ cursor:crosshair; }
+.td-status{ text-align:center; font-family:var(--font-display); font-weight:800; color:var(--ink-soft); margin-bottom:14px; }
+.td-status b{ color:var(--coral); }
+
 /* ---------- responsive ---------- */
 @media (max-width:520px){
   .q-prompt{ font-size:1.15rem; }
