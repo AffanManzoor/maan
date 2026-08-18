@@ -7,10 +7,12 @@
   const OBJS = ['🍓', '⭐', '🐝', '🎈', '🐠', '🍄', '🦋', '🌼'];
 
   function genQuestion(level) {
+    // Every count stays under 10 so a child never needs to count higher. Higher
+    // levels get harder via more choice buttons + distractor critters mixed in.
     let n, choiceCount, dn = 0;
     if (level === 1) { n = SK.randInt(1, 5); choiceCount = 3; }
-    else if (level === 2) { n = SK.randInt(3, 10); choiceCount = 3; }
-    else { n = SK.randInt(6, 15); choiceCount = 4; if (Math.random() < 0.6) dn = SK.randInt(3, 8); }
+    else if (level === 2) { n = SK.randInt(3, 9); choiceCount = 3; }
+    else { n = SK.randInt(4, 9); choiceCount = 4; if (Math.random() < 0.6) dn = SK.randInt(3, 6); }
 
     const obj = SK.pickOne(OBJS);
     let distractorObj = SK.pickOne(OBJS);
@@ -28,7 +30,7 @@
 
     const set = new Set([n]);
     let guard = 0;
-    while (set.size < choiceCount && guard < 40) { guard++; const v = n + SK.pickOne([-3, -2, -1, 1, 2, 3]); if (v >= 1) set.add(v); }
+    while (set.size < choiceCount && guard < 40) { guard++; const v = n + SK.pickOne([-3, -2, -1, 1, 2, 3]); if (v >= 1 && v <= 9) set.add(v); }
     const choices = SK.shuffle([...set]).map((v) => ({ html: `<span class="choice-num">${v}</span>`, correct: v === n }));
 
     return {

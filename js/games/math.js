@@ -13,17 +13,33 @@
   }
 
   function genQuestion(level) {
+    // Every number in every equation stays under 10 (a, b, and the answer are
+    // all 0-9) so the number line never intimidates a small child. Difficulty
+    // scales via the mix of + and -, and how many answer choices to pick from.
     let a, b, op;
     if (level === 1) {
-      a = SK.randInt(1, 5); b = SK.randInt(1, 5); op = '+';
+      op = '+';
+      // pick a first, then b so that a + b <= 9
+      a = SK.randInt(1, 5);
+      b = SK.randInt(1, 9 - a);
     } else if (level === 2) {
       op = Math.random() < 0.5 ? '+' : '-';
-      a = SK.randInt(2, 10); b = SK.randInt(1, 10);
-      if (op === '-' && b > a) { const t = a; a = b; b = t; }
+      if (op === '+') {
+        a = SK.randInt(1, 8);
+        b = SK.randInt(1, 9 - a);
+      } else {
+        a = SK.randInt(2, 9);
+        b = SK.randInt(1, a);
+      }
     } else {
       op = Math.random() < 0.5 ? '+' : '-';
-      a = SK.randInt(5, 20); b = SK.randInt(1, 15);
-      if (op === '-' && b > a) { const t = a; a = b; b = t; }
+      if (op === '+') {
+        a = SK.randInt(1, 8);
+        b = SK.randInt(1, 9 - a);
+      } else {
+        a = SK.randInt(2, 9);
+        b = SK.randInt(1, a);
+      }
     }
     const ans = op === '+' ? a + b : a - b;
     const choiceCount = level === 3 ? 4 : 3;
@@ -33,7 +49,7 @@
       guard++;
       const delta = SK.pickOne([-3, -2, -1, 1, 2, 3]);
       const v = ans + delta;
-      if (v >= 0) set.add(v);
+      if (v >= 0 && v <= 9) set.add(v);
     }
     const choices = SK.shuffle([...set]).map((v) => ({ html: `<span class="choice-num">${v}</span>`, correct: v === ans }));
     const emoji = SK.pickOne(OBJ);

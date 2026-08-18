@@ -23,11 +23,13 @@
     { value: 'chocolate', label: 'Chocolate chip', icon: '🍫' },
     { value: 'star', label: 'Star', icon: '⭐' }
   ];
-  const GOAL = { 1: 3, 2: 5, 3: 7 };
+  const MAX_SCOOPS = 10;
+  // minimum scoops needed to enable "All done!" — you can keep adding up to MAX_SCOOPS
+  const MIN_TO_FINISH = { 1: 1, 2: 2, 3: 3 };
 
   function mountIC(root, gameDef, level) {
     const shell = SKPlay.mountShell(root, gameDef);
-    const goal = GOAL[level] || 3;
+    const minToFinish = MIN_TO_FINISH[level] || 1;
     const scoops = [];
     let topping = null;
 
@@ -49,16 +51,12 @@
       btn.type = 'button'; btn.className = 'cust-swatch'; btn.title = f.label;
       btn.innerHTML = `<span class="cust-swatch-color" style="background:${f.color}"></span>`;
       btn.addEventListener('click', () => {
-        if (scoops.length >= goal) return;
+        if (scoops.length >= MAX_SCOOPS) return;
         scoops.push(f);
         SKAudio.play('pop');
         render();
-        if (scoops.length >= goal) {
-          shell.stage.querySelector('.cust-done').disabled = false;
-          shell.setDots(scoops.length, goal);
-        } else {
-          shell.setDots(scoops.length, goal);
-        }
+        shell.setDots(scoops.length, MAX_SCOOPS);
+        if (scoops.length >= minToFinish) shell.stage.querySelector('.cust-done').disabled = false;
       });
       sw1.appendChild(btn);
     });
@@ -92,15 +90,20 @@
     undoBtn.addEventListener('click', () => {
       if (!scoops.length) return;
       scoops.pop(); SKAudio.play('pop');
-      shell.stage.querySelector('.cust-done').disabled = scoops.length < goal;
-      shell.setDots(scoops.length, goal);
+      shell.stage.querySelector('.cust-done').disabled = scoops.length < minToFinish;
+      shell.setDots(scoops.length, MAX_SCOOPS);
       render();
     });
     cats.appendChild(undoBtn);
 
     function render() {
-      // build the cone + stacked scoops as inline SVG
-      const cx = 100, coneTop = 210 - scoops.length * 30;
+      // build the cone + stacked scoops as inline SVG.
+      // The bigger the stack, the shorter each scoop needs to be so it fits — for
+      // 1-5 scoops each is a full 30 units tall, but from 6+ scoops we squeeze
+      // them so 10 scoops still fit inside the 260-unit viewBox above the cone.
+      const cx = 100;
+      const scoopH = scoops.length <= 5 ? 30 : Math.max(18, Math.floor(150 / scoops.length));
+      const coneTop = 210 - scoops.length * scoopH;
       let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-label="Your ice cream">
         <defs>
           <linearGradient id="cn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4C989"/><stop offset="1" stop-color="#B98D4B"/></linearGradient>
@@ -109,27 +112,28 @@
         <polygon points="60,210 140,210 100,255" fill="url(#cn)" stroke="#8B5E34" stroke-width="2"/>
         <g stroke="#8B5E34" stroke-width="1" opacity=".35"><line x1="70" y1="215" x2="100" y2="255"/><line x1="130" y1="215" x2="100" y2="255"/><line x1="85" y1="215" x2="115" y2="255"/><line x1="115" y1="215" x2="85" y2="255"/></g>`;
       scoops.forEach((f, i) => {
-        const y = coneTop + i * 30 + 30;
+        const y = coneTop + i * scoopH + scoopH;
         const fill = f.color.startsWith('linear') ? 'url(#rb)' : f.color;
         const sway = (i % 2 === 0 ? -1 : 1) * 2;
         svg += `<circle cx="${cx + sway}" cy="${y}" r="30" fill="${fill}" stroke="rgba(0,0,0,.08)" stroke-width="2"/>`;
         svg += `<ellipse cx="${cx - 8 + sway}" cy="${y - 10}" rx="7" ry="4" fill="#fff" opacity=".5"/>`;
       });
       if (scoops.length > 0 && topping) {
-        const topY = coneTop + (scoops.length - 1) * 30 + 12;
-        svg += `</svg><span class="ic-topper" style="left:50%;top:${(topY / 260 * 100).toFixed(1)}%;font-size:1.8rem;">${topping.icon}</span>`;
+        // sit the topper right on top of the topmost scoop's top edge
+        const topY = coneTop - 6;
+        svg += `</svg><span class="ic-topper" style="left:50%;top:${(topY / 260 * 100).toFixed(1)}%;font-size:2.6rem;">${topping.icon}</span>`;
       } else {
         svg += `</svg>`;
       }
       preview.innerHTML = svg;
     }
     render();
-    shell.setDots(0, goal);
+    shell.setDots(0, MAX_SCOOPS);
 
     shell.stage.querySelector('.cust-done').addEventListener('click', () => {
       SKAudio.play('star');
       SKPlay.celebrate(root, gameDef, level, 3, 3, {
-        onReplay: () => { scoops.length = 0; topping = null; render(); shell.setDots(0, goal); shell.stage.querySelector('.cust-done').disabled = true; }
+        onReplay: () => { scoops.length = 0; topping = null; render(); shell.setDots(0, MAX_SCOOPS); shell.stage.querySelector('.cust-done').disabled = true; }
       });
     });
 
