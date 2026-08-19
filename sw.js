@@ -7,20 +7,21 @@
    play). Bump CACHE_NAME on any deploy that must reach devices
    with an already-installed worker sooner rather than later.
    ============================================================ */
-const CACHE_NAME = 'bloomzoo-v5';
+const CACHE_NAME = 'bloomzoo-v6';
 const CORE_ASSETS = [
   './', './index.html', './manifest.json',
-  './css/style.css?v=20', './css/games.css?v=20',
-  './js/core.js?v=20', './js/audio.js?v=20', './js/characters.js?v=20', './js/covers.js?v=20', './js/shell.js?v=20', './js/app.js?v=20',
-  './js/games/math.js?v=20', './js/games/counting.js?v=20', './js/games/sorting.js?v=20', './js/games/jigsaw.js?v=20',
-  './js/games/letters.js?v=20', './js/games/shapes.js?v=20', './js/games/memory.js?v=20', './js/games/patterns.js?v=20', './js/games/exam.js?v=20',
-  './js/games/buildbear.js?v=20', './js/games/buildsnowman.js?v=20', './js/games/carwash.js?v=20', './js/games/buildcake.js?v=20',
-  './js/games/brickbreaker.js?v=20', './js/games/starcatcher.js?v=20', './js/games/balloonpop.js?v=20', './js/games/whackamole.js?v=20',
-  './js/games/icecream.js?v=20', './js/games/bubblewrap.js?v=20', './js/games/butterfly.js?v=20', './js/games/piano.js?v=20', './js/games/feedmonster.js?v=20',
-  './js/games/pizza.js?v=20', './js/games/rocketrace.js?v=20',
-  './js/games/sushi.js?v=20', './js/games/robot.js?v=20', './js/games/spaceexplorer.js?v=20', './js/games/treasure.js?v=20',
-  './js/games/cupcake.js?v=20', './js/games/fairygarden.js?v=20', './js/games/fishtank.js?v=20',
-  './js/games/balloonride.js?v=20', './js/games/fireworks.js?v=20', './js/games/drumkit.js?v=20',
+  './css/style.css?v=21', './css/games.css?v=21',
+  './js/core.js?v=21', './js/audio.js?v=21', './js/characters.js?v=21', './js/covers.js?v=21', './js/shell.js?v=21', './js/app.js?v=21',
+  './js/games/math.js?v=21', './js/games/counting.js?v=21', './js/games/sorting.js?v=21', './js/games/jigsaw.js?v=21',
+  './js/games/letters.js?v=21', './js/games/shapes.js?v=21', './js/games/memory.js?v=21', './js/games/patterns.js?v=21', './js/games/exam.js?v=21',
+  './js/games/buildbear.js?v=21', './js/games/buildsnowman.js?v=21', './js/games/carwash.js?v=21', './js/games/buildcake.js?v=21',
+  './js/games/brickbreaker.js?v=21', './js/games/starcatcher.js?v=21', './js/games/balloonpop.js?v=21', './js/games/whackamole.js?v=21',
+  './js/games/icecream.js?v=21', './js/games/bubblewrap.js?v=21', './js/games/butterfly.js?v=21', './js/games/piano.js?v=21', './js/games/feedmonster.js?v=21',
+  './js/games/pizza.js?v=21', './js/games/rocketrace.js?v=21',
+  './js/games/sushi.js?v=21', './js/games/robot.js?v=21', './js/games/spaceexplorer.js?v=21', './js/games/treasure.js?v=21',
+  './js/games/cupcake.js?v=21', './js/games/fairygarden.js?v=21', './js/games/fishtank.js?v=21',
+  './js/games/balloonride.js?v=21', './js/games/fireworks.js?v=21', './js/games/drumkit.js?v=21',
+  './js/games/stickerstudio.js?v=21',
   './assets/favicon.svg'
 ];
 

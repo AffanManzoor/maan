@@ -301,6 +301,9 @@
 /* ---------- Fairy Garden + Fish Tank shared scene ---------- */
 .fg-scene, .ft-tank{ width:100%; max-width:520px; margin:0 auto 14px; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-pop); }
 .fg-scene svg, .ft-tank svg{ display:block; width:100%; height:auto; }
+.fg-scene .fg-resident{ animation:fgFairyFlit 4s ease-in-out infinite; transform-origin:340px 150px; }
+@keyframes fgFairyFlit{ 0%,100%{ transform:translate(0,0) rotate(-2deg); } 50%{ transform:translate(6px,-8px) rotate(3deg); } }
+@media (prefers-reduced-motion: reduce){ .fg-scene .fg-resident{ animation:none; } }
 .fg-tools{ display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center; justify-content:center; margin:0 auto 14px; max-width:520px; padding:12px 14px; background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow-soft); }
 .fg-tools .cust-row-label{ margin:0; }
 .fg-tools .cust-swatches{ gap:8px; }
@@ -312,6 +315,23 @@
 .fw-wrap{ width:100%; max-width:520px; margin:0 auto 12px; border-radius:20px; overflow:hidden; box-shadow:0 14px 30px rgba(43,33,69,.35); background:#050B1E; touch-action:none; cursor:crosshair; }
 .fw-wrap canvas{ display:block; width:100%; height:auto; }
 .fw-count{ text-align:center; font-family:var(--font-display); font-weight:800; color:var(--ink-soft); margin-bottom:10px; }
+
+/* ---------- Sticker Studio ---------- */
+.ss-scene-picker{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:0 auto 14px; max-width:560px; }
+.ss-scene-chip{ font-family:var(--font-display); font-weight:800; font-size:.85rem; border:2px solid var(--line); background:#fff; border-radius:999px; padding:.4em .9em; cursor:pointer; transition:transform .12s, border-color .12s; }
+.ss-scene-chip:hover{ transform:translateY(-2px); }
+.ss-scene-chip.active{ border-color:var(--grape); background:var(--grape); color:#fff; box-shadow:0 0 0 3px rgba(151,107,255,.3); }
+.ss-scene{ position:relative; width:100%; max-width:560px; margin:0 auto 14px; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-pop); background:#fff; aspect-ratio:500/330; touch-action:none; }
+.ss-scene .ss-bg{ position:absolute; inset:0; width:100%; height:100%; display:block; user-select:none; -webkit-user-drag:none; pointer-events:none; }
+.ss-scene .ss-placed{ position:absolute; inset:0; width:100%; height:100%; }
+.ss-placed-sticker{ position:absolute; font-size:44px; line-height:1; border:none; background:transparent; padding:0; cursor:grab; user-select:none; filter:drop-shadow(0 4px 6px rgba(0,0,0,.35)); touch-action:none; }
+.ss-placed-sticker.dragging{ cursor:grabbing; filter:drop-shadow(0 8px 12px rgba(0,0,0,.5)) brightness(1.08); z-index:5; }
+.ss-tray-wrap{ max-width:560px; margin:0 auto 12px; padding:12px 14px; background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow-soft); }
+.ss-tray-label{ font-family:var(--font-display); font-weight:800; font-size:.78rem; color:var(--ink-soft); margin-bottom:8px; text-transform:uppercase; letter-spacing:.06em; text-align:center; }
+.ss-tray{ display:flex; flex-wrap:wrap; gap:6px; justify-content:center; }
+.ss-tray-sticker{ font-size:32px; line-height:1; border:2px solid var(--line); border-radius:12px; background:#FFF6DC; padding:4px 8px; cursor:pointer; transition:transform .12s cubic-bezier(.34,1.56,.64,1); }
+.ss-tray-sticker:hover{ transform:translateY(-3px) scale(1.08); background:var(--cream); border-color:var(--grape); }
+.ss-tray-sticker:active{ transform:translateY(0) scale(0.95); }
 
 /* ---------- Drum Kit ---------- */
 .dk-kit{ display:flex; flex-wrap:wrap; gap:14px; align-items:flex-end; justify-content:center; margin:0 auto 16px; max-width:560px; padding:22px 18px; background:linear-gradient(180deg, #2B2145 0%, #1A1131 100%); border-radius:20px; box-shadow:var(--shadow-pop); }

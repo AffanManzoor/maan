@@ -511,6 +511,21 @@
       <path d="M186 96 L174 84" stroke="#8B5E34" stroke-width="3" stroke-linecap="round"/>
     </svg>`,
 
+    stickerstudio: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Sticker Studio cover">
+      <defs><linearGradient id="ssCovBG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE4FF"/><stop offset="1" stop-color="#E4F2FF"/></linearGradient></defs>
+      <rect width="200" height="120" fill="url(#ssCovBG)"/>
+      <path d="M0 80 Q60 72 120 82 T200 78 L200 120 L0 120 Z" fill="#3DDC97"/>
+      <path d="M0 96 Q60 88 120 100 T200 96 L200 120 L0 120 Z" fill="#2FAB70"/>
+      <circle cx="168" cy="26" r="14" fill="#FFC93C" opacity="0.85"/>
+      <text x="26" y="52" font-size="30">🦋</text>
+      <text x="70" y="66" font-size="28">🌸</text>
+      <text x="112" y="46" font-size="24">🧚</text>
+      <text x="142" y="70" font-size="26">🐇</text>
+      <text x="30" y="96" font-size="22">🍄</text>
+      <rect x="12" y="6" width="26" height="26" rx="6" fill="#fff" stroke="#9B6BFF" stroke-width="2"/>
+      <text x="16" y="27" font-size="18">🌈</text>
+    </svg>`,
+
     treasure: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Treasure Dig cover">
       <rect width="200" height="120" fill="#FFF6DC"/>
       <path d="M0 40 L200 40 L200 120 L0 120 Z" fill="#E6C68A"/>

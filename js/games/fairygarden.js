@@ -17,7 +17,8 @@
   const BRUSHES = [
     { value: 'flower',    label: '🌸 Flower' },
     { value: 'butterfly', label: '🦋 Butterfly' },
-    { value: 'mushroom',  label: '🍄 Mushroom' }
+    { value: 'mushroom',  label: '🍄 Mushroom' },
+    { value: 'fairy',     label: '🧚 Fairy' }
   ];
   const MAX_ITEMS = 24;
 
@@ -52,6 +53,43 @@
       <circle cx="-6" cy="-6" r="2" fill="#fff"/><circle cx="6" cy="-6" r="2" fill="#fff"/><circle cx="0" cy="-12" r="2.4" fill="#fff"/>
     </g>`;
   }
+  function fairySVG(x, y, dressColor) {
+    // Tiny winged fairy — round head, dress, wand with a star tip,
+    // translucent wings and a little sparkle trail. Positioned so the
+    // fairy's feet sit near the tap point.
+    return `<g transform="translate(${x} ${y - 8})">
+      <!-- shadow -->
+      <ellipse cx="0" cy="16" rx="8" ry="2" fill="rgba(0,0,0,.15)"/>
+      <!-- wings (behind body) -->
+      <g opacity="0.85">
+        <path d="M-2 -6 Q-16 -18 -18 -4 Q-16 6 -4 2 Z" fill="rgba(255,255,255,.85)" stroke="rgba(151,107,255,.6)" stroke-width="1"/>
+        <path d="M2 -6 Q16 -18 18 -4 Q16 6 4 2 Z"    fill="rgba(255,255,255,.85)" stroke="rgba(151,107,255,.6)" stroke-width="1"/>
+        <path d="M-3 4 Q-12 12 -14 4 Q-12 -2 -5 2 Z" fill="rgba(255,255,255,.7)" stroke="rgba(151,107,255,.5)" stroke-width="1"/>
+        <path d="M3 4 Q12 12 14 4 Q12 -2 5 2 Z"       fill="rgba(255,255,255,.7)" stroke="rgba(151,107,255,.5)" stroke-width="1"/>
+      </g>
+      <!-- dress (triangle skirt) -->
+      <path d="M-6 -2 L6 -2 L9 12 L-9 12 Z" fill="${dressColor}" stroke="rgba(0,0,0,.2)" stroke-width="1" stroke-linejoin="round"/>
+      <!-- arms + wand -->
+      <line x1="-4" y1="-1" x2="-10" y2="4" stroke="#F4C1D0" stroke-width="2" stroke-linecap="round"/>
+      <line x1="4" y1="-1" x2="12" y2="-6" stroke="#F4C1D0" stroke-width="2" stroke-linecap="round"/>
+      <line x1="12" y1="-6" x2="16" y2="-14" stroke="#8B5E34" stroke-width="1.5" stroke-linecap="round"/>
+      <polygon points="16,-16 18,-12 22,-12 19,-10 20,-6 16,-8 12,-6 13,-10 10,-12 14,-12" fill="#FFC93C" stroke="#F0A100" stroke-width="0.6"/>
+      <!-- head -->
+      <circle cx="0" cy="-10" r="5" fill="#FFE3C6" stroke="#2A2438" stroke-width="0.8"/>
+      <!-- hair -->
+      <path d="M-5 -12 Q-5 -18 0 -16 Q5 -18 5 -12 Q4 -14 0 -14 Q-4 -14 -5 -12 Z" fill="#8B5E34"/>
+      <!-- crown of little sparkles -->
+      <circle cx="-3" cy="-16" r="0.9" fill="#FFC93C"/><circle cx="0" cy="-17" r="1" fill="#FFC93C"/><circle cx="3" cy="-16" r="0.9" fill="#FFC93C"/>
+      <!-- eyes + smile -->
+      <circle cx="-1.5" cy="-10" r="0.7" fill="#2A2438"/>
+      <circle cx="1.5" cy="-10" r="0.7" fill="#2A2438"/>
+      <path d="M-1.5 -8 Q0 -7 1.5 -8" stroke="#2A2438" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+      <!-- sparkle trail -->
+      <circle cx="22" cy="-4" r="1.2" fill="rgba(255,201,60,.9)"/>
+      <circle cx="26" cy="0" r="0.8" fill="rgba(151,107,255,.9)"/>
+      <circle cx="24" cy="4" r="0.9" fill="rgba(255,111,125,.9)"/>
+    </g>`;
+  }
 
   function mountFairy(root, gameDef, level) {
     const shell = SKPlay.mountShell(root, gameDef);
@@ -59,7 +97,7 @@
 
     function render() {
       shell.stage.innerHTML = `
-        <p class="pz-instructions">Tap the meadow to plant flowers, butterflies and mushrooms — make it magic!</p>
+        <p class="pz-instructions">Tap the meadow to plant flowers, butterflies, mushrooms and fairies — make it magic!</p>
         <div class="fg-scene" id="fgScene"></div>
         <div class="fg-tools">
           <div class="cust-row-label">Brush</div>
@@ -88,8 +126,13 @@
       const items = state.items.map((it) => {
         if (it.kind === 'flower') return flowerSVG(it.x, it.y, it.color);
         if (it.kind === 'butterfly') return butterflySVG(it.x, it.y, it.color);
+        if (it.kind === 'fairy') return fairySVG(it.x, it.y, it.color);
         return mushroomSVG(it.x, it.y);
       }).join('');
+
+      // A resident fairy flits in the top-right of the meadow full-time so
+      // the garden always has a bit of magic in it, even before you plant.
+      const residentFairy = `<g class="fg-resident">${fairySVG(340, 150, '#F4C1D0')}</g>`;
 
       shell.stage.querySelector('#fgScene').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img" aria-label="Your fairy garden" style="cursor:crosshair">
         <defs><linearGradient id="fgSky${state.sky}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${sky.top}"/><stop offset="1" stop-color="${sky.bot}"/></linearGradient></defs>
@@ -98,6 +141,7 @@
         ${orb}
         <path d="M0 170 Q100 158 200 168 T400 170 L400 280 L0 280 Z" fill="#3DDC97"/>
         <path d="M0 200 Q100 190 200 202 T400 205 L400 280 L0 280 Z" fill="#2FAB70"/>
+        ${residentFairy}
         ${items}
       </svg>`;
 
