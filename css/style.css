@@ -284,6 +284,14 @@ a{ color:inherit; }
 .level-switch button.active{ background:var(--sky); border-color:var(--sky-dark); color:#fff; box-shadow:0 4px 0 var(--sky-dark); }
 
 .game-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:18px; }
+@media (max-width:640px){
+  .game-grid{ grid-template-columns:repeat(2,1fr); gap:12px; }
+  .tile{ padding:12px; }
+  .tile .t-title{ font-size:.92rem; }
+  .tile .t-blurb{ font-size:.72rem; margin-bottom:6px; }
+  .tile .t-stars{ font-size:.72rem; }
+  .tile .t-buddy{ width:32px; height:32px; top:8px; right:8px; }
+}
 .tile{
   background:#fff; border-radius:var(--radius-md); padding:18px; border:1px solid var(--line); box-shadow:var(--shadow-pop);
   cursor:pointer; position:relative; text-align:left; transition:transform .18s, box-shadow .18s; overflow:hidden;
@@ -558,7 +566,12 @@ a{ color:inherit; }
   body{ font-size:16px; }
   .topnav .tnav{ display:none; }
   .crew-grid{ grid-template-columns:repeat(2,1fr); gap:12px; }
-  .showcase{ grid-template-columns:1fr; }
+  .showcase{ grid-template-columns:repeat(2,1fr); gap:12px; }
+  .game-card{ padding:12px; gap:6px; }
+  .game-card .g-title{ font-size:.92rem; }
+  .game-card .g-blurb{ font-size:.72rem; }
+  .game-card .g-tag{ font-size:.6rem; }
+  .game-card .g-buddy{ width:26px; height:26px; top:10px; right:10px; }
   .why-grid{ grid-template-columns:1fr; }
   .pick-grid{ grid-template-columns:repeat(2,1fr); gap:12px; }
   .hero-stage,.hero-blob{ width:260px; height:260px; }

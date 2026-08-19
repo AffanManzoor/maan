@@ -72,18 +72,26 @@
       ctx.strokeStyle = '#5C3A1A'; ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.moveTo(x - 20, y + 14); ctx.lineTo(x - 26, y - 16); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(x + 20, y + 14); ctx.lineTo(x + 26, y - 16); ctx.stroke();
-      // balloon body — striped panels
+      // balloon body — vertical striped panels (a full-circle wedge for
+      // each stripe from the balloon's centre so the whole envelope is
+      // covered, not just one half).
       const stripes = ['#FF6F7D', '#FFC93C', '#4EA8FF', '#2FD8A0'];
+      const cxB = x, cyB = y - 16, rB = 30;
       for (let s = 0; s < stripes.length; s++) {
         ctx.fillStyle = stripes[s];
         ctx.beginPath();
-        ctx.moveTo(x, y - 46);
-        ctx.arc(x, y - 16, 30, -Math.PI / 2 + (s / stripes.length) * Math.PI, -Math.PI / 2 + ((s + 1) / stripes.length) * Math.PI);
+        ctx.moveTo(cxB, cyB);
+        const a0 = -Math.PI / 2 + (s / stripes.length) * Math.PI * 2;
+        const a1 = -Math.PI / 2 + ((s + 1) / stripes.length) * Math.PI * 2;
+        ctx.arc(cxB, cyB, rB, a0, a1);
         ctx.closePath(); ctx.fill();
       }
+      // subtle highlight blob (top-left)
+      ctx.fillStyle = 'rgba(255,255,255,.25)';
+      ctx.beginPath(); ctx.ellipse(cxB - 10, cyB - 10, 12, 7, -0.5, 0, Math.PI * 2); ctx.fill();
       // balloon outline + neck
       ctx.strokeStyle = '#2A2438'; ctx.lineWidth = 2;
-      ctx.beginPath(); ctx.arc(x, y - 16, 30, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.arc(cxB, cyB, rB, 0, Math.PI * 2); ctx.stroke();
       ctx.fillStyle = '#FF9D45';
       ctx.beginPath(); ctx.moveTo(x - 8, y + 14); ctx.lineTo(x + 8, y + 14); ctx.lineTo(x + 4, y + 8); ctx.lineTo(x - 4, y + 8); ctx.closePath(); ctx.fill();
     }
