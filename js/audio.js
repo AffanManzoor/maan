@@ -170,5 +170,5 @@
     }
   }
 
-  global.SKAudio = { play, speak, stopSpeak };
+  global.SKAudio = { play, speak, stopSpeak, getContext: () => (soundOn() ? ctx() : null) };
 })(window);

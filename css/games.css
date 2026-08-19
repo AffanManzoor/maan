@@ -298,6 +298,30 @@
 .rr-wrap canvas, .se-wrap canvas{ display:block; width:100%; height:auto; }
 .se-wrap{ background:#0E1444; box-shadow:0 14px 30px rgba(43,33,69,.35); }
 
+/* ---------- Fairy Garden + Fish Tank shared scene ---------- */
+.fg-scene, .ft-tank{ width:100%; max-width:520px; margin:0 auto 14px; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-pop); }
+.fg-scene svg, .ft-tank svg{ display:block; width:100%; height:auto; }
+.fg-tools{ display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center; justify-content:center; margin:0 auto 14px; max-width:520px; padding:12px 14px; background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow-soft); }
+.fg-tools .cust-row-label{ margin:0; }
+.fg-tools .cust-swatches{ gap:8px; }
+.fg-tools .cust-swatch{ width:auto; min-width:60px; height:44px; padding:0 12px; }
+.fg-tools .pz-undo{ margin:0; padding:.5em 1em; }
+.fg-count{ font-family:var(--font-display); font-weight:800; font-size:.85rem; color:var(--ink-soft); margin-left:auto; }
+
+/* ---------- Fireworks Show ---------- */
+.fw-wrap{ width:100%; max-width:520px; margin:0 auto 12px; border-radius:20px; overflow:hidden; box-shadow:0 14px 30px rgba(43,33,69,.35); background:#050B1E; touch-action:none; cursor:crosshair; }
+.fw-wrap canvas{ display:block; width:100%; height:auto; }
+.fw-count{ text-align:center; font-family:var(--font-display); font-weight:800; color:var(--ink-soft); margin-bottom:10px; }
+
+/* ---------- Drum Kit ---------- */
+.dk-kit{ display:flex; flex-wrap:wrap; gap:14px; align-items:flex-end; justify-content:center; margin:0 auto 16px; max-width:560px; padding:22px 18px; background:linear-gradient(180deg, #2B2145 0%, #1A1131 100%); border-radius:20px; box-shadow:var(--shadow-pop); }
+.dk-drum{ border:none; background:transparent; padding:0; cursor:pointer; display:flex; flex-direction:column; align-items:center; transition:transform .08s ease-out; }
+.dk-drum:active, .dk-drum.hit{ transform:translateY(4px) scale(0.95); }
+.dk-drum svg{ display:block; width:96px; height:auto; filter:drop-shadow(0 6px 8px rgba(0,0,0,.4)); }
+.dk-drum.dk-kick svg{ width:120px; }
+.dk-drum.dk-crash svg, .dk-drum.dk-hihat svg{ width:80px; }
+.dk-label{ font-family:var(--font-display); font-weight:800; font-size:.72rem; color:#F4E3C6; margin-top:6px; text-transform:uppercase; letter-spacing:.06em; }
+
 /* ---------- Treasure Dig ---------- */
 .td-scene{ position:relative; width:100%; max-width:420px; margin:0 auto 14px; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-pop); background:#FFF6DC; touch-action:none; aspect-ratio:400/320; }
 .td-scene .td-gem, .td-scene .td-sand{ position:absolute; inset:0; width:100%; height:100%; display:block; }

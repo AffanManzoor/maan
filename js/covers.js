@@ -426,6 +426,91 @@
       </g>
     </svg>`,
 
+    cupcake: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Cupcake Bakery cover">
+      <rect width="200" height="120" fill="#FFEAEC"/>
+      <ellipse cx="100" cy="106" rx="60" ry="6" fill="rgba(0,0,0,.12)"/>
+      <path d="M56 70 L144 70 L136 106 L64 106 Z" fill="#FF6F7D" stroke="#2A2438" stroke-width="1.5"/>
+      <g stroke="rgba(0,0,0,.15)"><line x1="72" y1="70" x2="76" y2="106"/><line x1="88" y1="70" x2="90" y2="106"/><line x1="100" y1="70" x2="100" y2="106"/><line x1="112" y1="70" x2="110" y2="106"/><line x1="128" y1="70" x2="124" y2="106"/></g>
+      <ellipse cx="100" cy="58" rx="46" ry="14" fill="#F4C1D0"/>
+      <ellipse cx="94" cy="46" rx="36" ry="12" fill="#F4C1D0"/>
+      <ellipse cx="102" cy="34" rx="26" ry="10" fill="#F4C1D0"/>
+      <ellipse cx="98" cy="24" rx="14" ry="8" fill="#F4C1D0"/>
+      <path d="M62 60 Q100 46 138 60" stroke="rgba(255,255,255,.4)" stroke-width="3" fill="none"/>
+      <circle cx="90" cy="30" r="3" fill="#FF6F7D"/><circle cx="106" cy="20" r="3" fill="#4EA8FF"/><circle cx="82" cy="42" r="3" fill="#FFC93C"/><circle cx="118" cy="42" r="3" fill="#2FD8A0"/><circle cx="112" cy="52" r="3" fill="#9B6BFF"/>
+      <path d="M98 12 L100 6 L102 12 L108 12 L102 16 L104 22 L100 18 L96 22 L98 16 L92 12 Z" fill="#FFC93C" stroke="#F0A100" stroke-width="1"/>
+    </svg>`,
+
+    fairygarden: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Fairy Garden cover">
+      <defs><linearGradient id="fgCovS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE4FF"/><stop offset="1" stop-color="#E4F2FF"/></linearGradient></defs>
+      <rect width="200" height="120" fill="url(#fgCovS)"/>
+      <circle cx="168" cy="26" r="14" fill="#FFC93C" opacity="0.85"/>
+      <path d="M0 76 Q60 68 110 78 T200 74 L200 120 L0 120 Z" fill="#3DDC97"/>
+      <path d="M0 92 Q60 82 110 96 T200 92 L200 120 L0 120 Z" fill="#2FAB70"/>
+      <g><line x1="34" y1="88" x2="34" y2="70" stroke="#2FAB70" stroke-width="2"/><circle cx="30" cy="65" r="5" fill="#FF6F7D"/><circle cx="38" cy="65" r="5" fill="#FF6F7D"/><circle cx="34" cy="60" r="5" fill="#FF6F7D"/><circle cx="34" cy="65" r="3" fill="#FFC93C"/></g>
+      <g><line x1="70" y1="92" x2="70" y2="74" stroke="#2FAB70" stroke-width="2"/><circle cx="66" cy="70" r="4" fill="#9B6BFF"/><circle cx="74" cy="70" r="4" fill="#9B6BFF"/><circle cx="70" cy="66" r="4" fill="#9B6BFF"/><circle cx="70" cy="70" r="2" fill="#FFC93C"/></g>
+      <g><line x1="118" y1="90" x2="118" y2="72" stroke="#2FAB70" stroke-width="2"/><circle cx="114" cy="68" r="5" fill="#FFC93C"/><circle cx="122" cy="68" r="5" fill="#FFC93C"/><circle cx="118" cy="63" r="5" fill="#FFC93C"/><circle cx="118" cy="68" r="3" fill="#FF6F7D"/></g>
+      <g fill="#F4C1D0" transform="translate(150 40)"><ellipse cx="-6" cy="-2" rx="6" ry="4"/><ellipse cx="6" cy="-2" rx="6" ry="4"/><ellipse cx="-6" cy="4" rx="4" ry="3"/><ellipse cx="6" cy="4" rx="4" ry="3"/><ellipse cx="0" cy="0" rx="1.5" ry="6" fill="#2A2438"/></g>
+    </svg>`,
+
+    fishtank: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Fish Tank cover">
+      <defs><linearGradient id="ftCovW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE4FF"/><stop offset="1" stop-color="#4EA8FF"/></linearGradient></defs>
+      <rect width="200" height="120" fill="#FFF6DC"/>
+      <rect x="10" y="10" width="180" height="100" rx="6" fill="url(#ftCovW)" stroke="#2A2438" stroke-width="3"/>
+      <path d="M20 22 Q60 16 100 22 T180 22" stroke="rgba(255,255,255,.35)" stroke-width="2" fill="none"/>
+      <path d="M10 96 Q60 84 100 96 T190 92 L190 110 L10 110 Z" fill="#E6C68A"/>
+      <path d="M28 96 Q22 74 30 60 Q38 44 28 30" stroke="#2FAB70" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M170 96 Q178 78 168 60 Q160 46 172 32" stroke="#2FAB70" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <g transform="translate(60 50)"><path d="M-12 0 Q-4 -6 6 -6 Q16 -4 18 0 Q16 4 6 6 Q-4 6 -12 0 Z" fill="#FF6F7D"/><path d="M-16 -6 L-10 0 L-16 6 Z" fill="#FF6F7D"/><circle cx="12" cy="-2" r="1.6" fill="#fff"/><circle cx="12" cy="-2" r="0.8" fill="#2A2438"/></g>
+      <g transform="translate(120 74)"><path d="M-10 0 Q-4 -6 6 -4 Q14 -2 16 0 Q14 4 6 4 Q-4 6 -10 0 Z" fill="#FFC93C"/><path d="M-14 -4 L-8 0 L-14 4 Z" fill="#FFC93C"/><circle cx="10" cy="-1" r="1.4" fill="#fff"/><circle cx="10" cy="-1" r="0.8" fill="#2A2438"/></g>
+      <g transform="translate(140 46)"><path d="M-8 0 Q-2 -4 4 -4 Q10 -2 12 0 Q10 2 4 4 Q-2 4 -8 0 Z" fill="#2FD8A0"/><path d="M-12 -3 L-6 0 L-12 3 Z" fill="#2FD8A0"/></g>
+      <circle cx="82" cy="30" r="3" fill="rgba(255,255,255,.7)"/>
+      <circle cx="90" cy="22" r="2" fill="rgba(255,255,255,.7)"/>
+      <circle cx="140" cy="26" r="2.5" fill="rgba(255,255,255,.7)"/>
+    </svg>`,
+
+    balloonride: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Balloon Ride cover">
+      <defs><linearGradient id="brCovS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE4FF"/><stop offset="1" stop-color="#E4F2FF"/></linearGradient></defs>
+      <rect width="200" height="120" fill="url(#brCovS)"/>
+      <circle cx="168" cy="24" r="14" fill="#FFC93C" opacity="0.85"/>
+      <ellipse cx="34" cy="42" rx="14" ry="8" fill="#fff" opacity=".9"/>
+      <ellipse cx="46" cy="44" rx="10" ry="6" fill="#fff" opacity=".9"/>
+      <ellipse cx="150" cy="90" rx="16" ry="9" fill="#fff" opacity=".9"/>
+      <g transform="translate(100 60)">
+        <path d="M-24 -30 A24 24 0 0 1 24 -30 L14 6 L-14 6 Z" fill="#FF6F7D"/>
+        <path d="M-24 -30 A24 24 0 0 1 -8 -32 L-14 6 L-24 -30 Z" fill="#FFC93C" opacity="0.9"/>
+        <path d="M8 -32 A24 24 0 0 1 24 -30 L14 6 L8 -32 Z" fill="#4EA8FF" opacity="0.9"/>
+        <rect x="-10" y="14" width="20" height="12" fill="#8B5E34" stroke="#5C3A1A" stroke-width="1"/>
+        <line x1="-10" y1="14" x2="-14" y2="6" stroke="#5C3A1A" stroke-width="1"/>
+        <line x1="10" y1="14" x2="14" y2="6" stroke="#5C3A1A" stroke-width="1"/>
+      </g>
+      <g transform="translate(48 82)"><rect x="-6" y="-6" width="12" height="12" fill="#9B6BFF" stroke="#2A2438" stroke-width="1"/><rect x="-6" y="-1" width="12" height="2" fill="#FFC93C"/></g>
+      <g transform="translate(160 62)"><rect x="-6" y="-6" width="12" height="12" fill="#2FD8A0" stroke="#2A2438" stroke-width="1"/><rect x="-1" y="-6" width="2" height="12" fill="#FFC93C"/></g>
+    </svg>`,
+
+    fireworks: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Fireworks Show cover">
+      <defs><linearGradient id="fwCovS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050B1E"/><stop offset="1" stop-color="#2B2145"/></linearGradient></defs>
+      <rect width="200" height="120" fill="url(#fwCovS)"/>
+      <g fill="#fff"><circle cx="10" cy="14" r="1"/><circle cx="42" cy="22" r="0.8"/><circle cx="80" cy="10" r="1.2"/><circle cx="120" cy="18" r="0.9"/><circle cx="160" cy="10" r="1"/><circle cx="188" cy="24" r="1.1"/><circle cx="26" cy="88" r="0.9"/></g>
+      <g transform="translate(56 46)"><g fill="#FF6F7D" opacity="0.95"><circle cx="-20" cy="0" r="2"/><circle cx="20" cy="0" r="2"/><circle cx="0" cy="-20" r="2"/><circle cx="0" cy="20" r="2"/><circle cx="-14" cy="-14" r="2"/><circle cx="14" cy="14" r="2"/><circle cx="14" cy="-14" r="2"/><circle cx="-14" cy="14" r="2"/></g></g>
+      <g transform="translate(140 40)"><g fill="#FFC93C" opacity="0.95"><circle cx="-18" cy="-8" r="1.8"/><circle cx="18" cy="-8" r="1.8"/><circle cx="0" cy="-22" r="1.8"/><circle cx="-14" cy="10" r="1.8"/><circle cx="14" cy="10" r="1.8"/><circle cx="0" cy="20" r="1.8"/><circle cx="-8" cy="-16" r="1.6"/><circle cx="8" cy="-16" r="1.6"/></g></g>
+      <g transform="translate(100 76)"><g fill="#4EA8FF" opacity="0.95"><circle cx="0" cy="-18" r="1.7"/><circle cx="0" cy="18" r="1.7"/><circle cx="-18" cy="0" r="1.7"/><circle cx="18" cy="0" r="1.7"/><circle cx="12" cy="12" r="1.6"/><circle cx="-12" cy="-12" r="1.6"/></g></g>
+      <path d="M0 110 L0 108 Q40 96 80 106 T160 108 L200 100 L200 120 L0 120 Z" fill="#0D1030"/>
+    </svg>`,
+
+    drumkit: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Drum Kit cover">
+      <rect width="200" height="120" fill="#FFEAEC"/>
+      <ellipse cx="100" cy="112" rx="90" ry="4" fill="rgba(0,0,0,.15)"/>
+      <ellipse cx="100" cy="80" rx="46" ry="10" fill="#FF6F7D" stroke="#2A2438" stroke-width="2"/>
+      <rect x="54" y="80" width="92" height="24" fill="#FF6F7D" stroke="#2A2438" stroke-width="2"/>
+      <ellipse cx="100" cy="80" rx="42" ry="8" fill="#F4E3C6"/>
+      <g><ellipse cx="38" cy="76" rx="18" ry="4" fill="#FFC93C" stroke="#2A2438" stroke-width="1.5"/><rect x="20" y="76" width="36" height="12" fill="#FFC93C" stroke="#2A2438" stroke-width="1.5"/><ellipse cx="38" cy="76" rx="16" ry="3" fill="#F4E3C6"/></g>
+      <g><ellipse cx="162" cy="76" rx="18" ry="4" fill="#4EA8FF" stroke="#2A2438" stroke-width="1.5"/><rect x="144" y="76" width="36" height="12" fill="#4EA8FF" stroke="#2A2438" stroke-width="1.5"/><ellipse cx="162" cy="76" rx="16" ry="3" fill="#F4E3C6"/></g>
+      <g><ellipse cx="60" cy="40" rx="24" ry="6" fill="#B7C4D6" stroke="#5C6473" stroke-width="1.5"/><ellipse cx="60" cy="36" rx="20" ry="4" fill="rgba(255,255,255,.4)"/><line x1="60" y1="46" x2="60" y2="76" stroke="#5C6473" stroke-width="2"/></g>
+      <g><ellipse cx="140" cy="30" rx="28" ry="7" fill="#F4C1D0" stroke="#5C6473" stroke-width="1.5"/><ellipse cx="140" cy="26" rx="22" ry="4" fill="rgba(255,255,255,.4)"/><line x1="140" y1="37" x2="140" y2="76" stroke="#5C6473" stroke-width="2"/></g>
+      <path d="M14 96 L26 84" stroke="#8B5E34" stroke-width="3" stroke-linecap="round"/>
+      <path d="M186 96 L174 84" stroke="#8B5E34" stroke-width="3" stroke-linecap="round"/>
+    </svg>`,
+
     treasure: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Treasure Dig cover">
       <rect width="200" height="120" fill="#FFF6DC"/>
       <path d="M0 40 L200 40 L200 120 L0 120 Z" fill="#E6C68A"/>
