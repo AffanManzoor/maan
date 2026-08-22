@@ -511,6 +511,141 @@
       <path d="M186 96 L174 84" stroke="#8B5E34" stroke-width="3" stroke-linecap="round"/>
     </svg>`,
 
+    wordmatch: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Word Match cover">
+      <rect width="200" height="120" fill="#FFF6DC"/>
+      <text x="40" y="70" font-size="42">🐱</text>
+      <text x="106" y="66" font-family="Baloo 2, ui-rounded, system-ui" font-weight="800" font-size="30" fill="#FF6F7D">c a t</text>
+      <rect x="12" y="88" width="80" height="20" rx="6" fill="#fff" stroke="#4EA8FF" stroke-width="2"/>
+      <text x="24" y="103" font-family="Baloo 2, ui-rounded, system-ui" font-weight="800" font-size="14" fill="#4EA8FF">cat</text>
+      <rect x="104" y="88" width="80" height="20" rx="6" fill="#fff" stroke="#B7C4D6" stroke-width="2"/>
+      <text x="118" y="103" font-family="Baloo 2, ui-rounded, system-ui" font-weight="800" font-size="14" fill="#B7C4D6">dog</text>
+    </svg>`,
+
+    soundout: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Sound It Out cover">
+      <rect width="200" height="120" fill="#FFEAEC"/>
+      <text x="40" y="70" font-size="42">🐶</text>
+      <g font-family="Baloo 2, ui-rounded, system-ui" font-weight="800" font-size="30">
+        <rect x="100" y="42" width="26" height="34" rx="4" fill="#fff" stroke="#FF6F7D" stroke-width="2"/>
+        <text x="106" y="68" fill="#FF6F7D">d</text>
+        <rect x="132" y="42" width="26" height="34" rx="4" fill="#fff" stroke="#FFC93C" stroke-width="2"/>
+        <text x="139" y="68" fill="#F0A100">o</text>
+        <rect x="164" y="42" width="26" height="34" rx="4" fill="#fff" stroke="#4EA8FF" stroke-width="2"/>
+        <text x="170" y="68" fill="#2A7EE0">g</text>
+      </g>
+      <path d="M112 92 Q145 106 178 92" stroke="#F0A100" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <text x="120" y="112" font-family="Baloo 2, ui-rounded, system-ui" font-weight="800" font-size="10" fill="#8B5E34">sound it out</text>
+    </svg>`,
+
+    littlestory: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Little Story cover">
+      <rect width="200" height="120" fill="#E4FBF3"/>
+      <rect x="16" y="18" width="80" height="90" rx="6" fill="#fff" stroke="#2A2438" stroke-width="2"/>
+      <rect x="104" y="18" width="80" height="90" rx="6" fill="#fff" stroke="#2A2438" stroke-width="2"/>
+      <line x1="100" y1="18" x2="100" y2="108" stroke="#2A2438" stroke-width="2"/>
+      <text x="34" y="46" font-size="20">🐷</text>
+      <text x="60" y="52" font-size="16">🎩</text>
+      <g stroke="#B7C4D6" stroke-width="2" fill="none" stroke-linecap="round">
+        <line x1="110" y1="34" x2="176" y2="34"/><line x1="110" y1="46" x2="176" y2="46"/><line x1="110" y1="58" x2="176" y2="58"/><line x1="110" y1="70" x2="176" y2="70"/>
+      </g>
+      <text x="34" y="98" font-size="14">🐄</text>
+      <text x="60" y="98" font-size="14">🐝</text>
+    </svg>`,
+
+    raindance: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Rain Dance cover">
+      <defs><linearGradient id="rdCovS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B7CCE8"/><stop offset="1" stop-color="#8FA6C4"/></linearGradient></defs>
+      <rect width="200" height="120" fill="url(#rdCovS)"/>
+      <ellipse cx="40" cy="20" rx="20" ry="9" fill="#fff" opacity=".9"/>
+      <ellipse cx="130" cy="16" rx="24" ry="9" fill="#fff" opacity=".9"/>
+      <g fill="#4EA8FF"><path d="M50 40 Q52 34 54 40 Q54 44 50 44 Q46 44 46 40 Q48 34 50 40 Z"/><path d="M70 60 Q72 54 74 60 Q74 64 70 64 Q66 64 66 60 Q68 54 70 60 Z"/><path d="M150 44 Q152 38 154 44 Q154 48 150 48 Q146 48 146 44 Q148 38 150 44 Z"/><path d="M170 68 Q172 62 174 68 Q174 72 170 72 Q166 72 166 68 Q168 62 170 68 Z"/></g>
+      <g transform="translate(100 80)">
+        <path d="M-30 0 A30 30 0 0 1 30 0 Z" fill="#FF6F7D"/>
+        <path d="M-30 0 A30 30 0 0 1 -10 -28 L-10 0 Z" fill="#FFC93C"/>
+        <path d="M10 -28 A30 30 0 0 1 30 0 L10 0 Z" fill="#4EA8FF"/>
+        <line x1="0" y1="0" x2="0" y2="30" stroke="#8B5E34" stroke-width="2"/>
+        <path d="M-8 30 A8 8 0 0 0 0 30" stroke="#8B5E34" stroke-width="2" fill="none"/>
+      </g>
+    </svg>`,
+
+    kaleidoscope: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Kaleidoscope cover">
+      <defs><radialGradient id="kdCovG" cx="0.5" cy="0.5" r="0.6"><stop offset="0" stop-color="#1A0F3A"/><stop offset="1" stop-color="#050518"/></radialGradient></defs>
+      <rect width="200" height="120" fill="url(#kdCovG)"/>
+      <g transform="translate(100 60)">
+        ${[0, 45, 90, 135, 180, 225, 270, 315].map((a) => `<g transform="rotate(${a})"><circle cx="0" cy="-32" r="8" fill="#FF6F7D"/><circle cx="14" cy="-20" r="5" fill="#FFC93C"/><circle cx="-14" cy="-20" r="5" fill="#4EA8FF"/><circle cx="0" cy="-10" r="3" fill="#2FD8A0"/></g>`).join('')}
+        <circle cx="0" cy="0" r="3" fill="#fff"/>
+      </g>
+      <circle cx="100" cy="60" r="48" fill="none" stroke="#B7C4D6" stroke-width="2"/>
+    </svg>`,
+
+    snowglobe: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Snow Globe cover">
+      <defs><radialGradient id="sgCovS" cx="0.5" cy="0.4" r="0.6"><stop offset="0" stop-color="#F0F7FF"/><stop offset="1" stop-color="#BFE4FF"/></radialGradient></defs>
+      <rect width="200" height="120" fill="#F4C1D0"/>
+      <rect x="60" y="94" width="80" height="18" rx="3" fill="#8B5E34" stroke="#2A2438" stroke-width="1.5"/>
+      <circle cx="100" cy="60" r="46" fill="url(#sgCovS)" stroke="#2A2438" stroke-width="2"/>
+      <g transform="translate(100 74)">
+        <rect x="-4" y="4" width="8" height="14" fill="#8B5E34"/>
+        <polygon points="-20,4 0,-30 20,4" fill="#2FAB70" stroke="#2A2438" stroke-width="1"/>
+        <polygon points="-16,-6 0,-36 16,-6" fill="#3DDC97" stroke="#2A2438" stroke-width="1"/>
+        <circle cx="0" cy="-32" r="2" fill="#FFC93C"/>
+      </g>
+      <g fill="#fff">
+        <circle cx="76" cy="42" r="1.6"/><circle cx="92" cy="34" r="1.6"/><circle cx="118" cy="42" r="1.6"/>
+        <circle cx="126" cy="60" r="1.6"/><circle cx="82" cy="62" r="1.6"/><circle cx="106" cy="52" r="1.6"/>
+        <circle cx="132" cy="78" r="1.6"/><circle cx="74" cy="78" r="1.6"/>
+      </g>
+      <ellipse cx="82" cy="42" rx="10" ry="4" fill="rgba(255,255,255,.5)" transform="rotate(-25 82 42)"/>
+    </svg>`,
+
+    fruitchop: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Fruit Chop cover">
+      <defs><linearGradient id="fcCovS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE4FF"/><stop offset="1" stop-color="#F4C1D0"/></linearGradient></defs>
+      <rect width="200" height="120" fill="url(#fcCovS)"/>
+      <text x="20" y="46" font-size="30">🍎</text>
+      <text x="60" y="80" font-size="30">🍊</text>
+      <text x="110" y="46" font-size="30">🍇</text>
+      <text x="150" y="70" font-size="30">🍌</text>
+      <path d="M14 20 Q80 70 190 30" stroke="rgba(255,255,255,.9)" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M14 20 Q80 70 190 30" stroke="#4EA8FF" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
+      <text x="16" y="112" font-family="Baloo 2, ui-rounded, system-ui" font-weight="800" font-size="12" fill="#B93540">chop!</text>
+    </svg>`,
+
+    beepath: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Bee Path cover">
+      <defs><linearGradient id="bpCovS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4F2FF"/><stop offset="1" stop-color="#FFF6DC"/></linearGradient></defs>
+      <rect width="200" height="120" fill="url(#bpCovS)"/>
+      <path d="M0 82 Q100 74 200 82 L200 120 L0 120 Z" fill="#B8DE7A"/>
+      <path d="M20 60 Q60 30 110 50 T180 40" stroke="#FFC93C" stroke-width="3" stroke-dasharray="4 4" fill="none" stroke-linecap="round"/>
+      <g fill="#FF6F7D"><circle cx="20" cy="60" r="6"/><text x="16" y="63" font-size="8" fill="#fff" font-family="ui-rounded, system-ui" font-weight="700">1</text></g>
+      <g fill="#FFC93C"><circle cx="70" cy="42" r="6"/><text x="66" y="45" font-size="8" fill="#2A2438" font-family="ui-rounded, system-ui" font-weight="700">2</text></g>
+      <g fill="#9B6BFF"><circle cx="118" cy="52" r="6"/><text x="114" y="55" font-size="8" fill="#fff" font-family="ui-rounded, system-ui" font-weight="700">3</text></g>
+      <g fill="#4EA8FF"><circle cx="180" cy="40" r="6"/><text x="176" y="43" font-size="8" fill="#fff" font-family="ui-rounded, system-ui" font-weight="700">4</text></g>
+      <g transform="translate(140 68)"><ellipse cx="-6" cy="-4" rx="6" ry="4" fill="rgba(255,255,255,.9)"/><ellipse cx="6" cy="-4" rx="6" ry="4" fill="rgba(255,255,255,.9)"/><ellipse cx="0" cy="0" rx="7" ry="5" fill="#FFC93C" stroke="#2A2438" stroke-width="1"/></g>
+    </svg>`,
+
+    trampoline: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Trampoline cover">
+      <defs><linearGradient id="tpCovS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE4FF"/><stop offset="1" stop-color="#F4C1D0"/></linearGradient></defs>
+      <rect width="200" height="120" fill="url(#tpCovS)"/>
+      <circle cx="34" cy="24" r="12" fill="#FFC93C" opacity="0.9"/>
+      <ellipse cx="140" cy="30" rx="16" ry="7" fill="#fff" opacity=".9"/>
+      <rect x="0" y="106" width="200" height="14" fill="#2FAB70"/>
+      <line x1="34" y1="102" x2="60" y2="82" stroke="#5C6473" stroke-width="4"/>
+      <line x1="166" y1="102" x2="140" y2="82" stroke="#5C6473" stroke-width="4"/>
+      <ellipse cx="100" cy="82" rx="60" ry="10" fill="#2A2438"/>
+      <ellipse cx="100" cy="78" rx="54" ry="6" fill="#5C6473"/>
+      <text x="88" y="46" font-size="34">🐰</text>
+      <g fill="#FFC93C"><circle cx="72" cy="40" r="2"/><circle cx="128" cy="42" r="2"/><circle cx="140" cy="58" r="1.6"/></g>
+    </svg>`,
+
+    puppyplay: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Puppy Playtime cover">
+      <rect width="200" height="120" fill="#FFEAEC"/>
+      <path d="M0 84 Q100 78 200 84 L200 120 L0 120 Z" fill="#B8DE7A"/>
+      <text x="16" y="80" font-size="46">🐶</text>
+      <rect x="88" y="30" width="100" height="34" rx="10" fill="#fff" stroke="#2A2438" stroke-width="1.5"/>
+      <polygon points="88,46 78,52 90,58" fill="#fff" stroke="#2A2438" stroke-width="1.5"/>
+      <text x="102" y="52" font-family="Baloo 2, ui-rounded, system-ui" font-weight="800" font-size="14" fill="#2A2438">my bone,</text>
+      <text x="118" y="66" font-family="Baloo 2, ui-rounded, system-ui" font-weight="800" font-size="14" fill="#2A2438">please!</text>
+      <text x="30" y="112" font-size="18">🎾</text>
+      <text x="80" y="112" font-size="18">🦴</text>
+      <text x="130" y="112" font-size="18">🧸</text>
+      <text x="176" y="112" font-size="18">🥏</text>
+    </svg>`,
+
     stickerstudio: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" role="img" aria-label="Sticker Studio cover">
       <defs><linearGradient id="ssCovBG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE4FF"/><stop offset="1" stop-color="#E4F2FF"/></linearGradient></defs>
       <rect width="200" height="120" fill="url(#ssCovBG)"/>

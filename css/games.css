@@ -316,6 +316,74 @@
 .fw-wrap canvas{ display:block; width:100%; height:auto; }
 .fw-count{ text-align:center; font-family:var(--font-display); font-weight:800; color:var(--ink-soft); margin-bottom:10px; }
 
+/* ---------- Word Match (Reading, Free) ---------- */
+.wm-prompt{ text-align:center; margin-bottom:18px; }
+.wm-pic{ font-size:6rem; line-height:1; margin-bottom:6px; filter:drop-shadow(0 8px 12px rgba(43,33,69,.2)); }
+.wm-hint{ font-family:var(--font-display); font-weight:800; font-size:1rem; color:var(--ink-soft); margin:0; }
+.wm-choices{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.wm-choice{ background:#fff; border:3px solid var(--line); border-radius:16px; padding:22px 34px; font-family:var(--font-display); font-weight:800; font-size:2rem; letter-spacing:.1em; color:var(--ink); cursor:pointer; box-shadow:var(--shadow-pop); transition:transform .14s, border-color .14s; text-transform:lowercase; }
+.wm-choice:hover{ transform:translateY(-3px); border-color:var(--sun); }
+.wm-choice.right{ border-color:var(--mint); background:linear-gradient(180deg,#fff,#E4FBF3); }
+.wm-choice.wrong{ animation:wmShake .35s ease-in-out; border-color:var(--coral); }
+@keyframes wmShake{ 0%,100%{ transform:translateX(0); } 25%{ transform:translateX(-6px); } 75%{ transform:translateX(6px); } }
+
+/* ---------- Sound It Out (Reading, Free) ---------- */
+.so-wrap{ text-align:center; }
+.so-pic{ font-size:5rem; line-height:1; margin-bottom:12px; filter:drop-shadow(0 8px 12px rgba(43,33,69,.2)); }
+.so-slots{ display:flex; gap:10px; justify-content:center; margin-bottom:14px; }
+.so-slot{ width:60px; height:76px; border:3px dashed var(--line); border-radius:14px; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:2.4rem; color:transparent; background:#fff; transition:color .2s, border-color .2s, transform .2s cubic-bezier(.34,1.56,.64,1); text-transform:uppercase; }
+.so-slot.lit{ color:var(--coral-dark); border-color:var(--coral); border-style:solid; transform:scale(1.05); background:linear-gradient(180deg,#fff,#FFEAEC); }
+.so-hint{ font-family:var(--font-display); font-weight:800; color:var(--ink-soft); margin:0 0 14px; min-height:1.4em; }
+.so-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+
+/* ---------- Little Story (Reading, Free) ---------- */
+.ls-book{ max-width:640px; margin:0 auto; background:#fff; border:2px solid var(--line); border-radius:20px; overflow:hidden; box-shadow:var(--shadow-pop); }
+.ls-cover{ background:linear-gradient(160deg,#FFC93C,#FF9D45); padding:20px; text-align:center; position:relative; overflow:hidden; }
+.ls-cover .ls-emoji{ display:inline-block; margin:0 8px; font-size:2.6rem; filter:drop-shadow(0 3px 4px rgba(0,0,0,.2)); animation:lsFloat 3.4s ease-in-out infinite; }
+.ls-cover .ls-e-hat{ animation-delay:-0.7s; }
+.ls-cover .ls-e-cow{ animation-delay:-1.4s; }
+.ls-cover .ls-e-bee{ animation-delay:-2.1s; }
+@keyframes lsFloat{ 0%,100%{ transform:translateY(0) rotate(-4deg); } 50%{ transform:translateY(-8px) rotate(6deg); } }
+@media (prefers-reduced-motion: reduce){ .ls-cover .ls-emoji{ animation:none; } }
+.ls-page{ padding:26px 28px 18px; }
+.ls-title{ font-family:var(--font-display); font-weight:800; color:var(--grape-dark); text-align:center; margin:0 0 18px; font-size:1.4rem; }
+.ls-line{ font-family:var(--font-display); font-weight:800; font-size:1.6rem; color:var(--ink); line-height:1.6; margin:.35em 0; text-align:center; transition:background .3s; padding:2px 6px; border-radius:8px; }
+.ls-line.reading{ background:linear-gradient(90deg,#FFF6DC,#FFEDB4); }
+.ls-word{ display:inline-block; margin:0 2px; padding:2px 6px; border-radius:8px; border:none; background:transparent; font-family:inherit; font-size:inherit; color:inherit; font-weight:inherit; cursor:pointer; transition:background .15s, transform .15s; }
+.ls-word:hover{ background:var(--cream); transform:translateY(-1px); }
+.ls-word.read{ background:var(--sun); color:var(--sun-ink); }
+.ls-hint{ font-size:.85rem; color:var(--ink-soft); text-align:center; margin:14px 0 0; font-weight:700; }
+.ls-actions{ display:flex; gap:12px; justify-content:center; padding:16px 20px 22px; flex-wrap:wrap; background:linear-gradient(180deg,transparent,var(--cream)); }
+
+/* ---------- Kaleidoscope (Plus) ---------- */
+.kd-wrap{ width:100%; max-width:480px; margin:0 auto 12px; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-pop); background:#050518; touch-action:none; aspect-ratio:1/1; }
+.kd-wrap canvas{ display:block; width:100%; height:100%; }
+
+/* ---------- Snow Globe (Plus) ---------- */
+.sg-globe{ position:relative; width:100%; max-width:300px; margin:0 auto 14px; }
+.sg-globe .sg-bg{ display:block; width:100%; height:auto; }
+.sg-globe .sg-snow{ position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none; }
+.sg-globe .sg-shake{ position:absolute; left:50%; bottom:-14px; transform:translateX(-50%); box-shadow:var(--shadow-pop); }
+
+/* ---------- Bee Path (Plus) ---------- */
+.bp-wrap{ width:100%; max-width:520px; margin:0 auto 14px; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-pop); }
+.bp-wrap svg{ display:block; width:100%; height:auto; }
+
+/* ---------- Puppy Playtime (Plus) ---------- */
+.pp-scene{ text-align:center; margin-bottom:18px; }
+.pp-puppy{ font-size:5.6rem; line-height:1; filter:drop-shadow(0 8px 12px rgba(43,33,69,.2)); transition:transform .3s; }
+.pp-puppy.wiggle{ animation:ppWiggle .6s ease-in-out; }
+@keyframes ppWiggle{ 0%,100%{ transform:rotate(0); } 20%{ transform:rotate(-10deg) scale(1.08); } 40%{ transform:rotate(10deg) scale(1.08); } 60%{ transform:rotate(-6deg) scale(1.06); } 80%{ transform:rotate(6deg) scale(1.06); } }
+.pp-speech{ display:inline-block; background:#fff; border:2px solid var(--line); border-radius:16px; padding:10px 16px; font-family:var(--font-display); font-weight:800; font-size:1.05rem; margin-top:10px; position:relative; }
+.pp-speech::before{ content:''; position:absolute; top:-8px; left:34px; width:0; height:0; border-left:8px solid transparent; border-right:8px solid transparent; border-bottom:8px solid #fff; }
+.pp-toys{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.pp-toy{ background:#fff; border:3px solid var(--line); border-radius:16px; padding:16px 20px; cursor:pointer; box-shadow:var(--shadow-pop); display:flex; flex-direction:column; align-items:center; gap:4px; transition:transform .14s, border-color .14s; min-width:90px; }
+.pp-toy:hover{ transform:translateY(-3px); border-color:var(--coral); }
+.pp-toy .pp-emoji{ font-size:2.4rem; line-height:1; }
+.pp-toy .pp-label{ font-family:var(--font-display); font-weight:800; font-size:.9rem; color:var(--ink-soft); text-transform:lowercase; }
+.pp-toy.right{ border-color:var(--mint); background:linear-gradient(180deg,#fff,#E4FBF3); }
+.pp-toy.wrong{ animation:wmShake .35s ease-in-out; border-color:var(--coral); }
+
 /* ---------- Sticker Studio ---------- */
 .ss-scene-picker{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:0 auto 14px; max-width:560px; }
 .ss-scene-chip{ font-family:var(--font-display); font-weight:800; font-size:.85rem; border:2px solid var(--line); background:#fff; border-radius:999px; padding:.4em .9em; cursor:pointer; transition:transform .12s, border-color .12s; }
